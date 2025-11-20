@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from www.aonekabadi.com/scrap-calculator by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Nov 2025 14:46:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Scrap Price Calculator — Aone Kabadi (thekabadiking) Bokaro</title>
+<meta name="description" content="Use the Scrap Price Calculator by Aone Kabadi (thekabadiking) in Bokaro, Jharkhand. Instantly calculate scrap value with live rates and save results with screenshot function for easy reference." />
+
+ 
+  <link rel="canonical" href="scrap-calculator-2.html" />
+
+ 
+  <link rel="icon" href="assets/favicon.html" type="image/png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Scrap Price Calculator — Aone Kabadi" />
+  <meta name="twitter:description" content="Live scrap rates calculator for Bokaro. Aone Kabadi offers doorstep pickup & recycling services." />
+  <meta name="twitter:image" content="assets/og-home.jpg" />
+
+  
+  <link rel="me" href="https://www.instagram.com/thekabadiking" />
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+   
+    :root{
+      --ktm-orange:#ff6600;
+      --ktm-accent:#ff7a2a;
+      --ktm-green:#21a462;
+      --text-on-dark:#ffffff;
+      --muted:#cfcfcf;
+      --card-radius:14px;
+      --panel-shadow: 0 18px 50px rgba(0,0,0,0.6);
+      --glass: rgba(255,255,255,0.03);
+      --maxw:1200px;
+      --success:#2bb673;
+      --muted2:#a6a6a6;
+      --radius:12px;
+      --max-width:1100px;
+    }
+    html,body { margin:0; padding:0; box-sizing:border-box; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; -webkit-font-smoothing:antialiased; background: linear-gradient(180deg,#0b0b0b,#121212); color:var(--muted); overflow-x:hidden; }
+    .container{ max-width:var(--maxw); margin:0 auto; padding:22px; box-sizing:border-box; }
+
+    header.site-header{ background: rgba(0,0,0,0.45); backdrop-filter: blur(6px); position:sticky; top:0; z-index:140; border-bottom:1px solid rgba(255,255,255,0.04); }
+    .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:8px 0; }
+    .brand img, .brand svg { height:70px !important; width:auto !important; display:block !important; background:transparent !important; border:none !important; box-shadow:none !important; }
+    nav.nav { display:flex; gap:14px; align-items:center; }
+    nav.nav a { color:var(--text-on-dark); text-decoration:none; font-weight:700; padding:6px 10px; border-radius:8px; }
+    nav.nav a.active { color: var(--ktm-orange); }
+
+    /* mobile collapsible nav styles - three-line hamburger */
+    #mobile-collapsible-nav-inject { display: none; }
+    @media (max-width: 768px) {
+      nav.nav { display: none !important; }
+      #mobile-collapsible-nav-inject { display:flex; align-items:center; gap:8px; position:relative; z-index:210; }
+
+      .hamburger {
+        width:46px; height:46px; display:inline-flex; align-items:center; justify-content:center;
+        background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+        border:1px solid rgba(255,255,255,0.06);
+        border-radius:12px;
+        padding:8px;
+        cursor:pointer;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        transition: transform 160ms ease, background 160ms ease;
+        flex-direction: column;
+        gap:4px;
+      }
+      .hamburger:active { transform: scale(.98); }
+      .hamburger:focus { outline: 3px solid rgba(24,255,255,0.12); }
+
+      .hamburger-line {
+        display:block;
+        width:18px;
+        height:2px;
+        border-radius:2px;
+        background:#fff;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.4), 0 4px 8px rgba(0,0,0,0.12) inset;
+        transition: transform .22s ease, opacity .18s ease;
+      }
+      .hamburger.open .hamburger-line:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+      .hamburger.open .hamburger-line:nth-child(2) { opacity: 0; transform: scale(0.4); }
+      .hamburger.open .hamburger-line:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+      #mobile-collapsible-nav-inject .collapsible-menu {
+        position:absolute; left:8px; top:58px; width:260px; max-height:0; overflow:hidden;
+        transition:max-height 300ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease, transform 220ms ease; opacity:0;
+        transform-origin: top left; transform: translateY(-6px) scale(.98);
+        background: linear-gradient(180deg, rgba(13,13,13,0.98), rgba(9,9,9,0.98));
+        backdrop-filter: blur(8px) saturate(120%); border-radius:14px; border:1px solid rgba(255,255,255,0.04); box-shadow:0 20px 60px rgba(0,0,0,0.7);
+      }
+      #mobile-collapsible-nav-inject .collapsible-menu.open { opacity:1; transform: translateY(0) scale(1); max-height:640px; }
+      #mobile-collapsible-nav-inject .collapsible-list { list-style:none; margin:10px; padding:10px; display:flex; flex-direction:column; gap:10px; }
+      #mobile-collapsible-nav-inject .collapsible-list a {
+        display:flex; gap:10px; align-items:center; padding:12px 14px; border-radius:12px; text-decoration:none; color:#fff; font-weight:700;
+        background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)); box-shadow: inset 0 -1px 0 rgba(0,0,0,0.14);
+      }
+      #mobile-collapsible-nav-inject .collapsible-list a:hover,
+      #mobile-collapsible-nav-inject .collapsible-list a:focus {
+        background: rgba(255,102,0,0.08); color: var(--ktm-orange); transform: translateX(4px);
+      }
+      .header-inner { gap:8px; }
+      .brand { margin-left:auto; display:flex; align-items:center; justify-content:flex-end; }
+      .brand img { height:52px !important; }
+    }
+
+    
+    .wrap{max-width:var(--max-width);margin:28px auto;padding:18px}
+    p.lead{margin:6px 0 18px;color:var(--muted2)}
+
+    .cards{display:grid;grid-template-columns:1fr 360px;gap:20px}
+
+    .card{background:linear-gradient(180deg,#0f0f0f,#0b0b0b);padding:16px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
+    #itemsContainer{display:grid;gap:12px}
+    .row{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(180deg,#111,#0e0e0e);border:1px solid rgba(255,255,255,0.02)}
+    .row .left{flex:1}
+    .row .left .title{font-weight:700;color:var(--text-on-dark)}
+
+    /* Important: per-unit price should be white */
+    .priceBlock{text-align:right;width:180px}
+    .priceBlock .price{font-weight:800;color: #ffffff !important; font-size:15px;} /* per-unit price -> WHITE */
+
+    /* default item totals: white, but toggled to orange when zero */
+    .priceBlock .itemTotal{font-weight:900;color:#ffffff;margin-top:6px;font-size:15px}
+    .itemTotal.zero { color: var(--ktm-orange) !important; } /* zero state -> ORANGE */
+
+    /* summary values: default white, zero -> orange */
+    #subtotal, #discount, #tax { color:#ffffff; font-weight:800; }
+    #subtotal.zero, #discount.zero, #tax.zero { color: var(--ktm-orange) !important; font-weight:900; }
+
+    /* grand pill */
+    .grand {
+      display:inline-flex; align-items:center; gap:12px; padding:10px 14px; border-radius:14px;
+      background: linear-gradient(90deg, rgba(43,182,115,0.06), rgba(11,142,98,0.06));
+      box-shadow: 0 12px 40px rgba(11,182,115,0.03);
+      color: #fff; font-weight:900; margin-top:8px;
+    }
+    .grand .grand-amount{ font-size:22px; font-weight:900; color:#ffffff; }
+    .grand .grand-amount.zero { color: var(--ktm-orange) !important; }
+
+    .controls{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+    .btn{background:var(--ktm-orange);border:none;color:#111;padding:10px 12px;border-radius:10px;font-weight:700;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted2)}
+
+    .adminBar{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+    .adminBar small{color:var(--muted2)}
+
+    @media (max-width:980px){
+      .cards{grid-template-columns:1fr}
+      .summary{position:relative}
+      .priceBlock{width:140px}
+      .row input[type=number]{width:120px; height:42px; line-height:42px; font-size:16px}
+    }
+    @media (max-width:520px){
+      .wrap{padding:12px}
+      .row input[type=number]{width:100px; height:40px; line-height:40px; font-size:16px; padding:0 8px}
+      .priceBlock{width:120px}
+      .btn{padding:8px 10px}
+      .grand { padding:8px 10px; gap:8px; }
+      .grand .grand-amount { font-size:18px; }
+    }
+    .muted{color:var(--muted2);font-size:13px}
+
+    /* numeric input visual (neon green glow on white input) */
+    .row input[type=number]{
+      width:140px; height:48px; padding:0 14px; line-height:48px; text-align:center; border-radius:10px;
+      border:1px solid rgba(43,182,115,0.95); background:#ffffff; color:#0b0b0b; font-weight:800; font-size:18px;
+      box-shadow: 0 0 12px rgba(43,182,115,0.9), 0 0 28px rgba(43,182,115,0.25);
+      transition: transform .12s ease, box-shadow .12s ease; -webkit-appearance: none; appearance: none; outline: none;
+    }
+    .row input[type=number]::placeholder { color: #8b8b8b; font-weight:700; }
+    .row input[type=number]::-webkit-inner-spin-button, .row input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    .row input[type=number]::-moz-inner-spin-button { display: none; }
+
+    /* Admin modal basic - expanded UI */
+    #adminModal{display:none;position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;padding:20px}
+    #adminModal .panel{background:#0f0f0f;padding:18px;border-radius:14px;max-width:820px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.03)}
+    #adminModal .admin-row{display:grid;grid-template-columns:2fr 60px 80px 44px;gap:8px;align-items:center;padding:8px;border-radius:8px;background:linear-gradient(180deg,#0e0e0e,#0c0c0c);border:1px solid rgba(255,255,255,0.02)}
+    #adminModal input[type=text], #adminModal input[type=number], #adminModal select{background:#080808;border:1px solid rgba(255,255,255,0.04);color:#fff;padding:8px;border-radius:8px}
+    #adminModal .admin-actions{display:flex;gap:8px;align-items:center;margin-top:10px}
+    #adminList{display:grid;gap:8px;max-height:52vh;overflow:auto;padding-right:6px}
+    .admin-delete{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted2);border-radius:8px;padding:6px;cursor:pointer}
+
+    .page-banner{ background: var(--ktm-orange); color:#111; font-weight:900; text-align:center; padding:14px 12px; z-index:130; }
+    .page-banner .banner-inner{ max-width:var(--max-width); margin:0 auto; font-size:28px; }
+    @media (max-width:520px){ .page-banner .banner-inner{ font-size:20px } }
+    .site-logo{height:110px!important;width:auto!important;display:block!important}
+
+    /* Screenshot-specific styles (applied only to the temporary screenshot element) */
+    .screenshot-root{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; background:#fff; color:#000; padding:18px; border-radius:8px; width:820px; box-shadow:0 10px 40px rgba(0,0,0,0.12)}
+    .screenshot-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .screenshot-header .title{font-weight:900;font-size:20px}
+    .screenshot-meta{font-size:12px;color:#333}
+    .screenshot-table{width:100%;border-collapse:collapse;font-size:14px}
+    .screenshot-table th, .screenshot-table td{padding:8px 10px;border-bottom:1px solid #eee;text-align:left}
+    .screenshot-table th{font-weight:800;background: #fafafa}
+    .screenshot-right{text-align:right}
+    .screenshot-total{font-weight:900;font-size:16px}
+
+    /* small helpers */
+    .muted-sm{font-size:12px;color:#9a9a9a}
+
+       #loginModal{ display:none; position:fixed; inset:0; z-index:13000; background:rgba(2,6,23,0.45); align-items:center; justify-content:center; padding:20px; }
+    #loginModal .panel{ background:#ffffff; padding:18px; border-radius:10px; width:100%; max-width:420px; box-shadow:0 20px 60px rgba(16,24,32,0.08); border:1px solid rgba(16,24,32,0.06); color:var(--ktm-orange) }
+    #loginModal input[type=password]{ width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(16,24,32,0.06); background:#fff; color:var(--ktm-orange); }
+    #loginMsg{ font-size:13px; color:#b44; margin-top:8px; min-height:18px }
+
+<style>
+  /* Mobile-friendly admin modal: keep desktop unchanged */
+  @media (max-width: 720px) {
+    /* Make modal anchored to bottom and full-width-ish for comfortable tapping */
+    #adminModal {
+      align-items: flex-end;       /* anchor panel to bottom */
+      padding: 0 8px 8px 8px;
+    }
+    #adminModal .panel {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px 12px 8px 8px;
+      max-height: 92vh;           /* allow scrolling within panel */
+      overflow: auto;
+      padding: 12px;
+      box-sizing: border-box;
+    }
+
+    /* make the admin list scrollable and roomy */
+    #adminList {
+      max-height: 56vh;
+      overflow:auto;
+      padding-right: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* slightly larger touch targets */
+    #adminModal .admin-row input,
+    #adminModal .admin-row select,
+    #adminModal .admin-row input[type=number],
+    #adminModal .admin-row .admin-delete {
+      font-size: 15px;
+      padding: 8px;
+    }
+
+    /* collapse admin row into stacked layout for narrow screens */
+    #adminModal .admin-row {
+      display: grid !important;
+      grid-template-columns: 1fr; /* single column */
+      gap: 8px;
+      align-items: stretch;
+    }
+    /* keep delete button visually distinct but full width */
+    #adminModal .admin-row .admin-delete {
+      justify-self: stretch;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* action buttons stacked for easier tap */
+    #adminModal > .panel > div:first-child > div {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: stretch;
+    }
+    #adminModal > .panel > div:first-child > div button {
+      width: 100%;
+    }
+  }
+
+  /* Extra tiny-screen tweak: ensure inputs take full width inside admin-row */
+  @media (max-width: 420px) {
+    #adminModal .admin-row input[type=text],
+    #adminModal .admin-row input[type=number],
+    #adminModal .admin-row select {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #adminModal .panel { padding: 10px; }
+  }
+</style>
+
+<script>
+  /* small js helper: focus first editable input when admin modal opens
+     (keeps your existing openAdmin() logic unchanged; this just improves UX) */
+  (function(){
+    // observe adminModal being shown and focus first input for mobile usability
+    var adminModal = document.getElementById && document.getElementById('adminModal');
+    if(!adminModal) return;
+    // Use a MutationObserver to detect style changes (display:block/flex)
+    var mo = new MutationObserver(function(muts){
+      muts.forEach(function(m){
+        if(m.type === 'attributes' && m.attributeName === 'style'){
+          try{
+            var disp = window.getComputedStyle(adminModal).display;
+            if(disp !== 'none'){
+              // small delay to let DOM populate
+              setTimeout(function(){
+                var first = adminModal.querySelector('input[type=text], input[type=number], select');
+                if(first){
+                  first.focus();
+                  if(typeof first.select === 'function') try{ first.select(); }catch(e){}
+                }
+              }, 60);
+            }
+          }catch(e){}
+        }
+      });
+    });
+    mo.observe(adminModal, { attributes: true, attributeFilter:['style','class'] });
+
+    // Also, when openAdmin() is called (if your code calls it directly), ensure a focus attempt:
+    var origOpenAdmin = window.openAdmin;
+    if(typeof origOpenAdmin === 'function'){
+      window.openAdmin = function(){
+        var r = origOpenAdmin.apply(this, arguments);
+        setTimeout(function(){
+          var first = adminModal.querySelector('input[type=text], input[type=number], select');
+          if(first){
+            first.focus();
+            if(typeof first.select === 'function') try{ first.select(); }catch(e){}
+          }
+        }, 60);
+        return r;
+      };
+    }
+  })();
+</script>
+
+  </style>
+</head>
+<body>
+
+  
+  <header class="site-header">
+    <div class="container header-inner">
+      <div id="mobile-collapsible-nav-inject" aria-hidden="true">
+        <button id="hamburger-inject" class="hamburger" aria-expanded="false" aria-controls="site-collapsible-menu" aria-label="Open menu">
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav id="site-collapsible-menu" class="collapsible-menu" aria-hidden="true" style="max-height: 0px;">
+          <ul class="collapsible-list" role="menu" aria-label="Mobile navigation">
+            <li><a href='index.html' role='menuitem'>Home</a></li>
+            <li><a href='services.html' role='menuitem'>Services</a></li>
+            <li><a href='initiatives.html' role='menuitem'>Initiatives</a></li>
+            <li><a href='franchise.html' role='menuitem'>Franchise</a></li>
+            <li><a href='about.html' role='menuitem'>About</a></li>
+            <li><a href='contact.html' role='menuitem'>Contact</a></li>
+            <li><a href='career.html' role='menuitem'>Careers</a></li>
+            <li><a href='scrap-calculator.html' role='menuitem'>Scrap Calculator</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <a class='brand' href='index.html'><img src="assets/logo.png" class="site-logo" alt="Aone Kabadi"></a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href='index.html'>Home</a>
+        <a href='services.html'>Services</a>
+        <a href='initiatives.html'>Initiatives</a>
+        <a href='franchise.html'>Franchise</a>
+        <a href='about.html'>About</a>
+        <a href='contact.html'>Contact</a>
+        <a href='career.html'>Careers</a>
+        <a class='active' href='scrap-calculator.html'>Scrap Calculator</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-banner">
+    <div class="banner-inner">SCRAP CALCULATOR</div>
+  </div>
+
+  <div class="wrap" id="scrapWrap">
+    <p class="lead">Enter quantities (kg) or pieces. Prices are controlled by admin. Totals update instantly.</p>
+
+    <div class="cards">
+      <div class="card" id="leftCard">
+        <div class="adminBar" style="justify-content:space-between">
+          <div><small class="muted">Items list (tap values to enter)</small></div>
+          <div><small class="muted">Auto-calc on input </small></div>
+        </div>
+
+        <div id="itemsContainer">
+          <!-- JS populates -->
+        </div>
+      </div>
+
+      <aside class="card summary" id="rightCard">
+        <div>
+          <div class="line"><div class="muted">Subtotal</div><div id="subtotal" class="zero">₹ 0.00</div></div>
+          <div class="line"><div class="muted">Discount (admin)</div><div id="discount" class="zero">₹ 0.00</div></div>
+          <div class="line"><div class="muted">GST (18%)</div><div id="tax" class="zero">₹ 0.00</div></div>
+
+          <div class="grand">
+            <div class="grand-label">Grand Total</div>
+            <div id="grand" class="grand-amount zero">₹ 0.00</div>
+            <div class="currency" aria-hidden="true">INR</div>
+          </div>
+
+          <div class="controls">
+            <button id="clearBtn" class="btn ghost">Clear</button>
+            <button id="adminToggle" class="btn">Admin</button>
+            <button id="screenshotBtn" class="btn">Take Screenshot</button>
+            <button id="exportBtn" style="display:none">Export</button>
+            <button id="importBtn" style="display:none">Import</button>
+            <input id="fileImport" type="file" accept="application/json" style="display:none" />
+          </div>
+
+          <div style="margin-top:12px;font-size:13px;color:var(--muted2)">Tip: On mobile rotate to landscape for a wider view. Screenshot captures only the entered items + grand total.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+ 
+  <div id="loginModal" aria-hidden="true">
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <h3 id="loginTitle" style="margin:0 0 8px;color:var(--ktm-orange)">Admin login</h3>
+      <div>
+        <input id="adminPassword" type="password" placeholder="Admin password" />
+        <div id="loginMsg" aria-live="polite"></div>
+        <div style="display:flex;gap:8px;margin-top:10px;justify-content:flex-end">
+          <button id="loginCancel" class="btn ghost" type="button">Cancel</button>
+          <button id="loginSubmit" class="btn" type="button">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="adminModal">
+    <div class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <h3 style="margin:0">Admin — Edit Prices & Items</h3>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button id="addNewItem" class="btn ghost">+ Add Item</button>
+          <button id="resetDefaults" class="btn ghost">Reset Defaults</button>
+          <button id="savePrices" class="btn">Save</button>
+          <button id="closeAdmin" class="btn ghost">Close</button>
+        </div>
+      </div>
+      <div id="adminList" style="display:grid;gap:8px;max-height:60vh;overflow:auto;padding-right:6px"></div>
+      <div style="margin-top:10px;color:var(--muted2);font-size:13px">Prices and item list are stored locally (localStorage). For a real admin panel, call your server API from here to persist centrally.</div>
+    </div>
+  </div>
+
+  <!-- scripts -->
+  <script src="../cdn.jsdelivr.net/npm/html2canvas%401.4.1/dist/html2canvas.min.js"></script>
+
+
+  <script src="../cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+
+  <script>
+    
+    // original defaultItems preserved for reset
+    const defaultItems = [
+      ['newspaper','Newspaper','kg',8],
+      ['copy','Copy','kg',12],
+      ['book','Book','kg',10],
+      ['magazine','Magazine','kg',6],
+      ['copy_book_mix','Copy + Book Mix','kg',10],
+      ['cartoon','Cartoon','kg',10],
+      ['iron','Iron','kg',20],
+      ['cutting_iron','Cutting Iron','kg',17],
+      ['tina','Tina','kg',15],
+      ['steel','Steel','kg',30],
+      ['al_cast','Aluminium (Cast)','kg',80],
+      ['al_beat','Aluminium (Beat)','kg',70],
+      ['plastic_black','Plastic (Black)','kg',1],
+      ['plastic_hard','Plastic (Hard)','kg',3],
+      ['plastic_soft','Plastic (Soft)','kg',10],
+      ['bottle_quarter','Bottle (Quarter)','pc',0.5],
+      ['bottle_full','Bottle (Full)','pc',1],
+      ['beer_bottle','Beer Bottle','pc',1],
+      ['computer','Computer','pc',100],
+      ['cpu','CPU','pc',150],
+      ['ups','U.P.S','pc',150],
+      ['battery_black','Battery (Black Dry)','kg',70],
+      ['battery_liquid','Battery (Liquid)','kg',80],
+      ['tyre','Tyre (4+6 Wheeler only)','kg',10],
+      ['tube','Tube','kg',10],
+      ['fridge_big','Frize (Big)','pc',400],
+      ['fridge_small','Frize (Small)','pc',200]
+    ];
+
+    // PASSWORD_HASH constant (leave as sentinel to allow demo fallback '@0825')
+    const PASSWORD_HASH = 'REPLACE_WITH_BCRYPT_HASH';
+
+    // Utility: slugify label to create safe id
+    function slugify(text){
+      return String(text).trim().toLowerCase().replace(/\s+/g,'_').replace(/[^a-z0-9_]/g,'') || ('item_' + Date.now());
+    }
+
+    // money formatter
+    const money = n => '₹ ' + Number(n).toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2});
+
+    // load items from localStorage or fallback to defaults
+    function loadItems(){
+      const raw = localStorage.getItem('scrap_items_v1');
+      if(raw){
+        try{ const parsed = JSON.parse(raw);
+          // validate
+          if(Array.isArray(parsed) && parsed.every(it=>it.id && it.label && it.unit)) return parsed;
+        }catch(e){}
+      }
+      // convert defaultItems to objects
+      return defaultItems.map(([id,label,unit,price])=>({ id, label, unit, price }));
+    }
+
+    function saveItems(items){
+      localStorage.setItem('scrap_items_v1', JSON.stringify(items));
+      // also keep prices compatibility key for older code
+      const priceObj = {};
+      for(const it of items) priceObj[it.id] = Number(it.price||0);
+      localStorage.setItem('scrap_prices_v1', JSON.stringify(priceObj));
+    }
+
+    // derive price map
+    function loadPricesFromItems(items){
+      const out = {};
+      for(const it of items) out[it.id] = Number(it.price || 0);
+      return out;
+    }
+
+    // state
+    let ITEMS = loadItems();
+    let PRICES = loadPricesFromItems(ITEMS);
+
+    // render items list (left side)
+    function renderItems(){
+      const container = document.getElementById('itemsContainer');
+      container.innerHTML = '';
+      for(const it of ITEMS){
+        const {id, label, unit} = it;
+        const row = document.createElement('div'); row.className = 'row'; row.dataset.id = id;
+
+        const left = document.createElement('div'); left.className = 'left';
+        left.innerHTML = `<div class="title">${escapeHtml(label)} <small class="muted">(${unit})</small></div>`;
+
+        const input = document.createElement('input'); input.type = 'number'; input.min='0'; input.step=(unit==='pc'?1:0.01); input.placeholder='0';
+        input.id = id + '_qty'; input.className = 'qty';
+        input.addEventListener('input', onInput);
+        left.appendChild(input);
+
+        const priceBlock = document.createElement('div'); priceBlock.className = 'priceBlock';
+        const totalText = money(0);
+        priceBlock.innerHTML = `<div class="muted">Price</div><div id="${id}_price_display" class="price">` + money(PRICES[id] || 0) + (unit==='pc'?('/pc'):('/kg')) + `</div><div id="${id}_total" class="itemTotal zero">` + totalText + `</div>`;
+
+        row.appendChild(left); row.appendChild(priceBlock);
+        container.appendChild(row);
+      }
+    }
+
+    // escape HTML helper
+    function escapeHtml(s){ return String(s).replace(/[&<>\"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c]; }); }
+
+    function onInput(e){
+      const id = e.target.id.replace('_qty','');
+      calculateItem(id);
+      calculateAll();
+    }
+
+    function calculateItem(id){
+      const qtyEl = document.getElementById(id + '_qty');
+      const qty = Number(qtyEl.value) || 0;
+      const price = Number(PRICES[id]||0);
+      const total = qty * price;
+      const unit = (ITEMS.find(x=>x.id===id) || {}).unit || 'kg';
+      const totalEl = document.getElementById(id + '_total');
+      if(!totalEl) return;
+
+      // set text
+      totalEl.textContent = money(total);
+
+      // toggle zero class
+      if (Number(total) === 0) {
+        totalEl.classList.add('zero');
+      } else {
+        totalEl.classList.remove('zero');
+      }
+    }
+
+    function calculateAll(){
+      let subtotal = 0;
+      for(const it of ITEMS){
+        const id = it.id;
+        const el = document.getElementById(id + '_qty');
+        const qty = el ? (Number(el.value) || 0) : 0;
+        subtotal += qty * (Number(PRICES[id]||0));
+      }
+      const discount = Number(localStorage.getItem('scrap_discount') || 0);
+      const taxRate = Number(localStorage.getItem('scrap_tax') || 0); // percent
+      const afterDiscount = Math.max(0, subtotal - discount);
+      const tax = afterDiscount * (taxRate/100);
+      const grand = afterDiscount + tax;
+
+      // update and toggle zero classes for summary elements
+      const setSummary = (id, value) => {
+        const el = document.getElementById(id);
+        if(!el) return;
+        el.textContent = money(value);
+        if (Number(value) === 0) el.classList.add('zero'); else el.classList.remove('zero');
+      };
+
+      setSummary('subtotal', subtotal);
+      setSummary('discount', Number(localStorage.getItem('scrap_discount') || 0));
+      setSummary('tax', tax);
+
+      const grandEl = document.getElementById('grand');
+      if(grandEl){
+        grandEl.textContent = money(grand);
+        if(Number(grand) === 0) grandEl.classList.add('zero'); else grandEl.classList.remove('zero');
+      }
+    }
+
+    /* --------------------
+       Admin UI (add/edit/delete items)
+       --------------------*/
+    function openAdmin(){
+      const modal = document.getElementById('adminModal');
+      const list = document.getElementById('adminList'); list.innerHTML = '';
+
+      ITEMS.forEach((it, idx) => {
+        const el = createAdminRow(it);
+        list.appendChild(el);
+      });
+
+      // extra controls: discount / tax
+      const extra = document.createElement('div');
+      extra.style.marginTop = '8px';
+      extra.innerHTML = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px"><div><label class="muted">Discount (flat)</label><input id="admin_discount" type="number" step="0.01" value="${Number(localStorage.getItem('scrap_discount')||0)}" style="width:100%"></div><div><label class="muted">GST %</label><input id="admin_tax" type="number" step="0.01" value="${Number(localStorage.getItem('scrap_tax')||0)}" style="width:100%"></div></div>`;
+      list.appendChild(extra);
+
+      modal.style.display = 'flex';
+    }
+
+    // Create an admin row element (editable item)
+    function createAdminRow(item){
+      const row = document.createElement('div'); row.className = 'admin-row';
+      // columns: label input | unit | price | delete
+      const labelInp = document.createElement('input'); labelInp.type = 'text'; labelInp.value = item.label || '';
+      labelInp.dataset.id = item.id; labelInp.placeholder = 'Item name (visible)';
+
+      const unitSel = document.createElement('select');
+      const optKg = document.createElement('option'); optKg.value='kg'; optKg.text='kg';
+      const optPc = document.createElement('option'); optPc.value='pc'; optPc.text='pc';
+      unitSel.appendChild(optKg); unitSel.appendChild(optPc); unitSel.value = item.unit || 'kg';
+
+      const priceInp = document.createElement('input'); priceInp.type='number'; priceInp.step='0.01'; priceInp.value = Number(item.price||0);
+
+      const delBtn = document.createElement('button'); delBtn.className='admin-delete'; delBtn.type='button'; delBtn.title='Delete item'; delBtn.innerHTML='✕';
+
+      delBtn.addEventListener('click', ()=>{
+        if(!confirm('Delete "' + (item.label||'item') + '"?')) return;
+        // remove from ITEMS array
+        ITEMS = ITEMS.filter(it => it.id !== item.id);
+        // re-render admin
+        openAdmin();
+      });
+
+      // attach data to inputs so save can read
+      labelInp.dataset.origId = item.id;
+      priceInp.dataset.origId = item.id;
+      unitSel.dataset.origId = item.id;
+
+      row.appendChild(labelInp);
+      row.appendChild(unitSel);
+      row.appendChild(priceInp);
+      row.appendChild(delBtn);
+
+      return row;
+    }
+
+    // Add new blank item (in admin)
+    function addNewItem(){
+      const newItem = { id: 'item_' + Date.now(), label: 'New Item', unit: 'kg', price: 0 };
+      ITEMS.push(newItem);
+      openAdmin();
+      // focus the last input
+      setTimeout(()=>{
+        const list = document.getElementById('adminList');
+        const last = list.querySelector('.admin-row input[type=text]');
+        if(last) { last.focus(); last.select(); }
+      },50);
+    }
+
+    // Reset to defaults
+    function resetToDefaults(){
+      if(!confirm('Reset items and prices to original defaults? This will overwrite local changes.')) return;
+      ITEMS = defaultItems.map(([id,label,unit,price])=>({ id, label, unit, price }));
+      saveItems(ITEMS);
+      PRICES = loadPricesFromItems(ITEMS);
+      renderItems(); calculateAll();
+      document.getElementById('adminModal').style.display='none';
+      alert('Reset to defaults');
+    }
+
+    // Save prices + items from admin modal
+    function savePricesFromAdmin(){
+      const rows = document.querySelectorAll('#adminList .admin-row');
+      const newItems = [];
+      for(const r of rows){
+        const labelInp = r.querySelector('input[type=text]');
+        const unitSel = r.querySelector('select');
+        const priceInp = r.querySelector('input[type=number]');
+        if(!labelInp || !unitSel || priceInp===null) continue;
+        let id = labelInp.dataset.origId || slugify(labelInp.value || 'item');
+        // ensure id uniqueness
+        if(newItems.some(it=>it.id===id)) id = id + '_' + Date.now();
+        const label = labelInp.value || 'Unnamed';
+        const unit = unitSel.value || 'kg';
+        const price = Number(priceInp.value) || 0;
+        newItems.push({ id, label, unit, price });
+      }
+
+      // read discount/tax
+      const discEl = document.getElementById('admin_discount');
+      const taxEl = document.getElementById('admin_tax');
+      if(discEl) localStorage.setItem('scrap_discount', Number(discEl.value) || 0);
+      if(taxEl) localStorage.setItem('scrap_tax', Number(taxEl.value) || 0);
+
+      // apply
+      ITEMS = newItems;
+      saveItems(ITEMS);
+      PRICES = loadPricesFromItems(ITEMS);
+
+      // update UI
+      renderItems(); calculateAll();
+      alert('Items & prices saved locally. To persist server-side, call an API from here.');
+      document.getElementById('adminModal').style.display='none';
+    }
+
+    /* Export/Import (includes items) */
+    function exportJSON(){
+      const data = { items: ITEMS, discount: Number(localStorage.getItem('scrap_discount')||0), tax: Number(localStorage.getItem('scrap_tax')||0) };
+      const blob = new Blob([JSON.stringify(data, null, 2)],{type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download='scrap_prices_and_items.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+
+    function importJSON(file){
+      const r = new FileReader(); r.onload = () => {
+        try{
+          const obj = JSON.parse(r.result);
+          if(obj.items && Array.isArray(obj.items)){
+            // basic validation
+            ITEMS = obj.items.map(it=>({ id: it.id || slugify(it.label||'item'), label: it.label||'Unnamed', unit: it.unit||'kg', price: Number(it.price)||0 }));
+            saveItems(ITEMS);
+            PRICES = loadPricesFromItems(ITEMS);
+          }
+          if(obj.discount!==undefined) localStorage.setItem('scrap_discount', Number(obj.discount)||0);
+          if(obj.tax!==undefined) localStorage.setItem('scrap_tax', Number(obj.tax)||0);
+          renderItems(); calculateAll();
+          alert('Imported values applied.');
+        }catch(e){ alert('Import failed. Invalid JSON.'); }
+      }
+      r.readAsText(file);
+    }
+
+    /* Clear functionality */
+    function clearAll(){
+      document.querySelectorAll('.qty').forEach(i=>i.value='');
+      calculateAll();
+      for(const it of ITEMS){
+        const t = document.getElementById(it.id + '_total'); if(t){ t.textContent = money(0) ; t.classList.add('zero'); }
+      }
+    }
+
+    /* ============================
+       Screenshot (improved clarity)
+       - builds a clean HTML snapshot only with entered items
+       - larger fonts, aligned columns, timestamp, higher scale for html2canvas
+       ============================ */
+    function takeScreenshot(){
+      // collect entered items
+      const rows = [];
+      for(const it of ITEMS){
+        const qtyEl = document.getElementById(it.id + '_qty');
+        const qty = qtyEl ? (Number(qtyEl.value) || 0) : 0;
+        if(qty && qty !== 0){
+          const price = Number(PRICES[it.id]||0);
+          const total = qty * price;
+          rows.push({ label: it.label, unit: it.unit, qty, price, total });
+        }
+      }
+      if(rows.length === 0){ alert('No items entered. Please enter quantities to capture a screenshot.'); return; }
+
+      const subtotalText = document.getElementById('subtotal').textContent;
+      const discountText = document.getElementById('discount').textContent;
+      const taxText = document.getElementById('tax').textContent;
+      const grandText = document.getElementById('grand').textContent;
+
+      // create a clean DOM node for screenshot
+      const snap = document.createElement('div'); snap.className = 'screenshot-root';
+      const now = new Date();
+      const header = document.createElement('div'); header.className='screenshot-header';
+      header.innerHTML = `<div class="title">Aone Kabadi — Scrap Calculation</div><div class="screenshot-meta">${now.toLocaleString()}</div>`;
+      snap.appendChild(header);
+
+      // table
+      const table = document.createElement('table'); table.className='screenshot-table';
+      const thead = document.createElement('thead'); thead.innerHTML = '<tr><th>Item</th><th>Unit</th><th class="screenshot-right">Qty</th><th class="screenshot-right">Price/unit</th><th class="screenshot-right">Total</th></tr>';
+      table.appendChild(thead);
+      const tbody = document.createElement('tbody');
+      rows.forEach(r=>{
+        const tr = document.createElement('tr');
+        const tdLabel = document.createElement('td'); tdLabel.textContent = r.label;
+        const tdUnit = document.createElement('td'); tdUnit.textContent = r.unit;
+        const tdQty = document.createElement('td'); tdQty.className='screenshot-right'; tdQty.textContent = (r.unit==='pc') ? Number(r.qty).toLocaleString('en-IN') : Number(r.qty).toLocaleString('en-IN', {maximumFractionDigits:2});
+        const tdPrice = document.createElement('td'); tdPrice.className='screenshot-right'; tdPrice.textContent = money(r.price) + (r.unit==='pc'?'/pc':'/kg');
+        const tdTotal = document.createElement('td'); tdTotal.className='screenshot-right'; tdTotal.textContent = money(r.total);
+        tr.appendChild(tdLabel); tr.appendChild(tdUnit); tr.appendChild(tdQty); tr.appendChild(tdPrice); tr.appendChild(tdTotal);
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      snap.appendChild(table);
+
+      // summary
+      const sumWrap = document.createElement('div'); sumWrap.style.marginTop='12px'; sumWrap.style.display='flex'; sumWrap.style.justifyContent='flex-end'; sumWrap.style.flexDirection='column'; sumWrap.style.gap='6px';
+      const makeLine=(label, val)=>{
+        const d = document.createElement('div'); d.style.display='flex'; d.style.justifyContent='space-between'; d.style.maxWidth='400px';
+        const l = document.createElement('div'); l.textContent = label; l.className='muted-sm';
+        const v = document.createElement('div'); v.textContent = val; v.className='screenshot-right';
+        d.appendChild(l); d.appendChild(v); return d;
+      }
+      sumWrap.appendChild(makeLine('Subtotal', subtotalText));
+      sumWrap.appendChild(makeLine('Discount', discountText));
+      sumWrap.appendChild(makeLine('GST', taxText));
+      const grandLine = makeLine('Grand Total', grandText); grandLine.querySelector('div:last-child').className = 'screenshot-total screenshot-right';
+      sumWrap.appendChild(grandLine);
+      snap.appendChild(sumWrap);
+
+      // attach to DOM off-screen
+      snap.style.position = 'fixed'; snap.style.left = '-9999px'; snap.style.top = '0';
+      document.body.appendChild(snap);
+
+      // higher scale for crisp image
+      const scale = 2; // crispness multiplier
+      html2canvas(snap, { scale: scale, useCORS:true, backgroundColor: '#fff', logging:false }).then(canvas=>{
+        canvas.toBlob(function(blob){
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a'); a.href = url; a.download = 'scrap-calculation.png'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+          snap.remove();
+        }, 'image/png');
+      }).catch(err=>{ snap.remove(); alert('Screenshot failed: ' + err); });
+    }
+
+    /* ============================
+       Mobile menu init (keeps animation)
+       ============================ */
+    (function(){
+      if(window.__a1_mobile_menu_inited) return;
+      window.__a1_mobile_menu_inited = true;
+
+      function initMenu(){
+        var wrapper = document.getElementById('mobile-collapsible-nav-inject');
+        if(!wrapper) return;
+        var btn = document.getElementById('hamburger-inject');
+        var menu = document.getElementById('site-collapsible-menu');
+        if(!btn || !menu) return;
+
+        btn.setAttribute('aria-expanded','false');
+        menu.setAttribute('aria-hidden','true');
+
+        function openMenu(){
+          menu.classList.add('open');
+          btn.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+          menu.setAttribute('aria-hidden','false');
+          try{ menu.style.maxHeight = menu.scrollHeight + 'px'; }catch(e){}
+        }
+        function closeMenu(){
+          menu.classList.remove('open');
+          btn.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+          menu.setAttribute('aria-hidden','true');
+          try{ menu.style.maxHeight = 0; }catch(e){}
+        }
+
+        btn.addEventListener('click', function(e){
+          e.stopPropagation();
+          if(menu.classList.contains('open')) closeMenu(); else openMenu();
+        });
+
+        menu.addEventListener('click', function(e){
+          var a = e.target.closest('a');
+          if(a){ setTimeout(closeMenu, 120); }
+        });
+
+        document.addEventListener('keydown', function(ev){
+          if(ev.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+        });
+
+        window.addEventListener('resize', function(){
+          if(window.innerWidth > 768 && menu.classList.contains('open')) closeMenu();
+        });
+
+        document.addEventListener('click', function(ev){
+          if(!menu.classList.contains('open')) return;
+          var inside = ev.target.closest && (ev.target.closest('#site-collapsible-menu') || ev.target.closest('#hamburger-inject'));
+          if(!inside) closeMenu();
+        });
+      }
+
+      if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMenu); else initMenu();
+    })();
+
+    /* ============================
+       DOM ready init
+       ============================ */
+    document.addEventListener('DOMContentLoaded', ()=>{
+      renderItems();
+      calculateAll();
+
+      /* -----------------------
+         REPLACED prompt() admin login with modal-based login (minimal)
+         - keeps demo fallback '@0825' when PASSWORD_HASH not configured
+         ----------------------- */
+      const loginModal = document.getElementById('loginModal');
+      const loginSubmit = document.getElementById('loginSubmit');
+      const loginCancel = document.getElementById('loginCancel');
+      const adminPasswordInput = document.getElementById('adminPassword');
+      const loginMsg = document.getElementById('loginMsg');
+
+      document.getElementById('adminToggle').addEventListener('click', ()=>{
+        // open modal instead of prompt
+        if(!loginModal) return;
+        adminPasswordInput.value = '';
+        loginMsg.textContent = '';
+        loginModal.style.display = 'flex';
+        setTimeout(()=>adminPasswordInput.focus(), 60);
+      });
+
+      // cancel simply hides
+      loginCancel.addEventListener('click', ()=>{ loginModal.style.display = 'none'; });
+
+      // handle login submit: bcrypt-compare if PASSWORD_HASH set, otherwise demo fallback '@0825'
+      loginSubmit.addEventListener('click', ()=>{
+        const pwd = (adminPasswordInput.value || '').trim();
+        if(!pwd){ loginMsg.textContent = 'Enter password'; return; }
+
+        // demo fallback when PASSWORD_HASH not set
+        if(PASSWORD_HASH === 'REPLACE_WITH_BCRYPT_HASH' || !PASSWORD_HASH){
+          if(pwd === '@0825'){ loginModal.style.display = 'none'; openAdmin(); return; } else { loginMsg.textContent = 'Incorrect password '; return; }
+        }
+
+        // use bcryptjs compareSync (bcrypt is loaded above)
+        try {
+          const ok = bcrypt.compareSync(pwd, PASSWORD_HASH);
+          if(ok){ loginModal.style.display = 'none'; openAdmin(); return; } else { loginMsg.textContent = 'Incorrect password'; return; }
+        } catch(err){
+          console.error('bcrypt compare error', err);
+          loginMsg.textContent = 'Login error';
+        }
+      });
+
+      adminPasswordInput.addEventListener('keydown', function(ev){ if(ev.key === 'Enter') loginSubmit.click(); });
+
+            document.getElementById('closeAdmin').addEventListener('click', ()=>{ document.getElementById('adminModal').style.display='none'; });
+      document.getElementById('savePrices').addEventListener('click', savePricesFromAdmin);
+
+      document.getElementById('clearBtn').addEventListener('click', ()=>{ if(confirm('Clear all entered quantities?')) clearAll(); });
+      document.getElementById('exportBtn').addEventListener('click', exportJSON);
+      document.getElementById('importBtn').addEventListener('click', ()=>{ document.getElementById('fileImport').click(); });
+      document.getElementById('fileImport').addEventListener('change', (e)=>{ if(e.target.files && e.target.files[0]) importJSON(e.target.files[0]); });
+      document.getElementById('screenshotBtn').addEventListener('click', takeScreenshot);
+
+      document.getElementById('addNewItem').addEventListener('click', addNewItem);
+      document.getElementById('resetDefaults').addEventListener('click', resetToDefaults);
+
+      window.addEventListener('storage', ()=>{ ITEMS = loadItems(); PRICES = loadPricesFromItems(ITEMS); renderItems(); calculateAll(); });
+    });
+  </script>
+<a href="https://wa.me/917856815038" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+</body>
+
+<!-- Mirrored from www.aonekabadi.com/scrap-calculator by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Nov 2025 14:46:17 GMT -->
+</html>
