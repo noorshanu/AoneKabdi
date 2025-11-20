@@ -1,0 +1,10 @@
+# Test submissions (local testing only)
+test-submissions.json
+
+# Node modules (if you add any npm packages later)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+

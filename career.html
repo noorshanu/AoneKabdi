@@ -640,7 +640,7 @@ aside.panel {
 (function(){
 
   // <-- Replace this with the exact web app exec URL if you redeployed to a different one.
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyUeScnlXBs6o2fDmGZ-oUjG2XNTO-BLhxFo9m4-APfUNs1TdddmWSP06zaJPaI_4sL/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzuySAoCiRPiIr2n-TzD0dYb8v_dw8WxF7IieLdTYiYCk01Sn59N1pbAwsSEOy9lLBk/exec";
 
   function uid(){ return 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,9); }
 
@@ -714,7 +714,7 @@ aside.panel {
     }
     if(!form.querySelector('[name="sheetName"]')){
       var inp2 = document.createElement('input');
-      inp2.type = 'hidden'; inp2.name = 'sheetName'; inp2.value = 'Career inquiry form';
+      inp2.type = 'hidden'; inp2.name = 'sheetName'; inp2.value = 'careerForm';
       form.appendChild(inp2);
     }
     if(!form.querySelector('[name="submission_id"]')){
@@ -762,7 +762,7 @@ aside.panel {
 
     // defensive ensure
     if(!fd.get('form_id')) fd.append('form_id','careerForm');
-    if(!fd.get('sheetName')) fd.append('sheetName','Career inquiry form');
+    if(!fd.get('sheetName')) fd.append('sheetName','careerForm');
     if(!fd.get('submission_id')) fd.append('submission_id', sidEl && sidEl.value ? sidEl.value : uid());
 
     // optimistic UI
