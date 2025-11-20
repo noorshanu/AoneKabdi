@@ -655,7 +655,7 @@ html, body { overflow-x: hidden; }
         <button class="toggle-btn" data-form="franchise">Franchise</button>
       </div>
 
-    <!-- ============= FULL REPLACEMENT: Pickup form (Sub-area selection separated from Final Address) ============= -->
+    <!-- ============= Pickup form with District, Current Location, and Pincode ============= -->
 <form id="pickupForm" method="POST"
       action="https://script.google.com/macros/s/AKfycbzuySAoCiRPiIr2n-TzD0dYb8v_dw8WxF7IieLdTYiYCk01Sn59N1pbAwsSEOy9lLBk/exec"
       class="pf-root" novalidate>
@@ -682,58 +682,46 @@ html, body { overflow-x: hidden; }
     <option value="books">Books</option>
   </select>
 
-  <!-- Area + Sub-area (sheet) -->
+  <!-- District selection -->
+  <label class="pf-label" for="area">District</label>
+  <select id="area" name="area" class="pf-input" required>
+    <option value="">Select district</option>
+    <option value="Bokaro">Bokaro</option>
+    <option value="Chatra">Chatra</option>
+    <option value="Deoghar">Deoghar</option>
+    <option value="Dhanbad">Dhanbad</option>
+    <option value="Dumka">Dumka</option>
+    <option value="East Singhbhum">East Singhbhum</option>
+    <option value="Garhwa">Garhwa</option>
+    <option value="Giridih">Giridih</option>
+    <option value="Godda">Godda</option>
+    <option value="Gumla">Gumla</option>
+    <option value="Hazaribagh">Hazaribagh</option>
+    <option value="Jamtara">Jamtara</option>
+    <option value="Khunti">Khunti</option>
+    <option value="Koderma">Koderma</option>
+    <option value="Latehar">Latehar</option>
+    <option value="Lohardaga">Lohardaga</option>
+    <option value="Pakur">Pakur</option>
+    <option value="Palamu">Palamu</option>
+    <option value="Ramgarh">Ramgarh</option>
+    <option value="Ranchi">Ranchi</option>
+    <option value="Sahebganj">Sahebganj</option>
+    <option value="Saraikela Kharsawan">Saraikela Kharsawan</option>
+    <option value="Simdega">Simdega</option>
+    <option value="West Singhbhum">West Singhbhum</option>
+  </select>
+
+  <!-- Current Location and Pincode -->
   <div class="pf-row2">
     <div class="pf-col">
-      <label class="pf-label" for="area">District</label>
-      <select id="area" name="area" class="pf-input" required>
-        <option value="">Select district</option>
-        <option value="Bokaro">Bokaro</option>
-        <option value="Chatra">Chatra</option>
-        <option value="Deoghar">Deoghar</option>
-        <option value="Dhanbad">Dhanbad</option>
-        <option value="Dumka">Dumka</option>
-        <option value="East Singhbhum">East Singhbhum</option>
-        <option value="Garhwa">Garhwa</option>
-        <option value="Giridih">Giridih</option>
-        <option value="Godda">Godda</option>
-        <option value="Gumla">Gumla</option>
-        <option value="Hazaribagh">Hazaribagh</option>
-        <option value="Jamtara">Jamtara</option>
-        <option value="Khunti">Khunti</option>
-        <option value="Koderma">Koderma</option>
-        <option value="Latehar">Latehar</option>
-        <option value="Lohardaga">Lohardaga</option>
-        <option value="Pakur">Pakur</option>
-        <option value="Palamu">Palamu</option>
-        <option value="Ramgarh">Ramgarh</option>
-        <option value="Ranchi">Ranchi</option>
-        <option value="Sahebganj">Sahebganj</option>
-        <option value="Saraikela Kharsawan">Saraikela Kharsawan</option>
-        <option value="Simdega">Simdega</option>
-        <option value="West Singhbhum">West Singhbhum</option>
-      </select>
+      <label class="pf-label" for="currentLocation">Full Address</label>
+      <input id="currentLocation" name="currentLocation" class="pf-input" placeholder="Enter your current location" required>
     </div>
-
-    <!-- <div class="pf-col">
-      <label class="pf-label" for="subarea">Sub-area</label>
-      <div style="display:flex;gap:8px;">
-        <button type="button" id="subareaOpen" class="pf-input pf-btn" aria-haspopup="dialog" aria-expanded="false" style="flex:1;">
-          <span id="subareaLabel">Choose sub-area</span>
-          <span class="pf-arrow">▾</span>
-        </button>
-        <button type="button" id="useSubAsFinal" class="pf-copy-btn" title="Copy selected sub-area into final address" style="min-width:44px;display:none;">⇥</button>
-      </div>
-   
-      <input id="subareaValue" name="subarea" type="hidden" value="">
-    </div> -->
-  </div>
-
-  <!-- manual final address (always separate) -->
-  <label class="pf-label" for="finalAddress">Final address (manual)</label>
-  <input id="finalAddress" name="finalAddress" class="pf-input" placeholder="Enter full address — building, landmark, street">
-  <div style="font-size:12px;color:#6b6b6b;margin-bottom:12px;">
-    If your exact address is not in the sub-area list, type it here. You can optionally copy the selected sub-area into this field using the ⇥ button.
+    <div class="pf-col">
+      <label class="pf-label" for="pincode">Pincode</label>
+      <input id="pincode" name="pincode" type="text" class="pf-input" placeholder="Enter pincode" pattern="[0-9]{6}" maxlength="6" required>
+    </div>
   </div>
 
   <!-- date/time -->
@@ -748,28 +736,6 @@ html, body { overflow-x: hidden; }
   <button type="submit" id="pickupSubmit" class="pf-submit">Request Pickup</button>
 </form>
 
-<!-- Sub-area bottom sheet -->
-<div id="subareaSheet" class="pf-sheet" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Choose sub-area">
-  <div class="pf-backdrop" id="sheetBackdrop"></div>
-  <div class="pf-panel" role="document">
-    <div class="pf-panel-header">
-      <div>
-        <h3 class="pf-panel-title">Choose Sub-area</h3>
-        <div class="pf-panel-sub">Search or tap to select. Use "Enter manually" if your place isn't listed.</div>
-      </div>
-      <button id="sheetClose" class="pf-close-btn" aria-label="Close">✕</button>
-    </div>
-
-    <input id="sheetSearch" class="pf-input pf-search" placeholder="Search sub-areas (type to filter)" aria-label="Search sub-areas">
-
-    <div id="sheetList" class="pf-list" role="list" tabindex="0" aria-label="Sub-area list"></div>
-
-    <div style="display:flex;gap:8px;margin-top:12px;">
-      <button id="sheetManualBtn" class="pf-manual-btn" type="button">Enter sub-area manually</button>
-      <button id="sheetDoneBtn" class="pf-done-btn" type="button">Done</button>
-    </div>
-  </div>
-</div>
 
 <style>
   :root { --red:#ff7300; --radius:12px; --panel-bg:#fff; --text:#111; }
@@ -823,9 +789,6 @@ html, body { overflow-x: hidden; }
   .pf-done-btn   { padding:10px; border-radius:10px; border:0; background:var(--red); color:#fff; font-weight:800; cursor:pointer; flex:1; }
 
   /* neutralize theme overrides */
-  #subareaSheet, #subareaSheet * { color: var(--text) !important; -webkit-text-fill-color: var(--text) !important; background-color: transparent !important; opacity:1 !important; mix-blend-mode:normal !important; }
-  #subareaSheet .pf-panel { background: var(--panel-bg) !important; }
-  #subareaSheet .pf-item { background: #fff !important; }
 
   @media (max-width:420px){
     .pf-root { padding-left:12px; padding-right:12px; }
@@ -835,49 +798,10 @@ html, body { overflow-x: hidden; }
 
 <script>
 (function(){
-/* ---------- DATA ---------- */
-const SUBAREAS = {
-  "Petarwar":[
-    "Achaiya","Arjua","Basaria","Bhulan Khetko","Bundu","Chalkari","Chando","Chatugara",
-    "Chipudag","Darid","Etke","Gaga","Gharwatanr Baludih","Jabra","Jabunal","Jaruatanr",
-    "Jhujhko","Kajrum","Katamkuli","Khetko","Khurdchando","Koh","Korarma","Lepo","Lukuiya",
-    "Mayapur","Merudaru","Mirzapur","Nawadih","Obra","Ordana","Patki","Petarbar",
-    "Ponrdag","Raghubahiar","Rangamati","Rohar","Sadma Kalan","Sadma Khurd","Samlata",
-    "Sarla Khurd (alias Jaradih)","Tenu"
-  ],
-  "Gola":[
-    "Alagdiha","Aonradih","Bagha Kudar","Bamhan Sagatu","Banda","Bantara","Bardiha","Bargutu","Bariatu",
-    "Barki Koiya","Barki Sarla","Barlanga","Betul Kalan","Betul Khurd","Bhubhui","Bhuinya Sagatu","Bisa","Biyang",
-    "Chakarbali","Chari","Chhotki Koiya","Chokad","Chopadaru","Dabhatu","Dhamnatanr Alias Mahadeokuda",
-    "Dimra","Dundigachhi","Gandhaunia","Ghaghra","Ghasi Kenke","Gobindpur","Gola","Hariband","Hematpur",
-    "Heramdaga","Hesal","Hesapora","Hethbarga","Hisimdag","Homasita","Hulu","Hupu","Jabhia","Jamuna","Jangi",
-    "Kamta","Kamti","Kenke","Khakhra","Khokha","Koenardih","Korambe","Kuju Kalan","Kumhardaga",
-    "Kusumdih Kalyanpur","Lipia","Maganpur","Mahalidih","Mundudih","Murmuta","Murpa","Nawa Sirka","Nawadih",
-    "Patratu","Purabdih Alias Kudapalu","Purna Sirka","Raipura","Rakua","Raorao","Rola","Rundai",
-    "Sagrampur","Saragdih","Saram","Sarla Khurd","Sereghatu","Sitinghatu","Sokla","Sondimra",
-    "Soso Kalan","Soso Khurd","Sothai","Sutri","Tandil","Tirla","Tonagatu","Toyar","Uladaka","Uparbarga"
-  ]
-};
-
-/* ---------- ELEMENTS ---------- */
-const areaEl = document.getElementById('area');
-const openBtn = document.getElementById('subareaOpen');
-const subLabel = document.getElementById('subareaLabel');
-const subHidden = document.getElementById('subareaValue');
-const finalAddr = document.getElementById('finalAddress');
-const useSubCopyBtn = document.getElementById('useSubAsFinal');
-
-const sheet = document.getElementById('subareaSheet');
-const sheetList = document.getElementById('sheetList');
-const sheetSearch = document.getElementById('sheetSearch');
-const sheetClose = document.getElementById('sheetClose');
-const sheetManualBtn = document.getElementById('sheetManualBtn');
-const sheetDoneBtn = document.getElementById('sheetDoneBtn');
-const sheetBackdrop = document.getElementById('sheetBackdrop');
-
 /* ---------- time select ---------- */
 (function populateTime(){
   const timeEl = document.getElementById('time');
+  if(!timeEl) return;
   timeEl.innerHTML = '';
   for (let h=8; h<=20; h++){
     for (let m=0; m<60; m+=30){
@@ -893,129 +817,14 @@ const sheetBackdrop = document.getElementById('sheetBackdrop');
   }
 })();
 
-/* ---------- functions ---------- */
-function openSheet(){
-  if(!areaEl.value){
-    alert('Please select an Area first.');
-    return;
-  }
-  buildList();
-  sheet.setAttribute('aria-hidden','false');
-  openBtn.setAttribute('aria-expanded','true');
-  setTimeout(()=>sheetSearch.focus(),100);
-}
-function closeSheet(){
-  sheet.setAttribute('aria-hidden','true');
-  openBtn.setAttribute('aria-expanded','false');
-  sheetSearch.value = '';
-}
-
-/* build filtered list */
-function buildList(){
-  sheetList.innerHTML = '';
-  const area = areaEl.value;
-  if(!area || !SUBAREAS[area]) {
-    const no = document.createElement('div'); no.className='pf-item'; no.textContent='No area selected'; sheetList.appendChild(no); return;
-  }
-  const q = sheetSearch.value.trim().toLowerCase();
-  const arr = SUBAREAS[area].slice();
-  const filtered = q ? arr.filter(x => x.toLowerCase().includes(q)) : arr;
-  if(filtered.length===0){
-    const no = document.createElement('div'); no.className='pf-item'; no.textContent='No matches'; no.setAttribute('aria-hidden','true'); sheetList.appendChild(no); return;
-  }
-  filtered.forEach(name=>{
-    const item = document.createElement('div');
-    item.className = 'pf-item';
-    item.textContent = name;
-    item.tabIndex = 0;
-    item.onclick = () => selectSubarea(name);
-    item.onkeydown = (e)=>{ if(e.key==='Enter') selectSubarea(name); };
-    sheetList.appendChild(item);
-  });
-}
-
-/* select subarea: update label + hidden field ONLY (do NOT overwrite manual address) */
-function selectSubarea(name){
-  subLabel.textContent = name;
-  subHidden.value = name;
-  // make copy button visible (user can decide to copy into finalAddress)
-  useSubCopyBtn.style.display = 'inline-block';
-  closeSheet();
-}
-
-/* manual flow: focus manual input (do not overwrite hidden) */
-sheetManualBtn.onclick = function(){
-  closeSheet();
-  finalAddr.focus();
-};
-
-/* copy selected sub-area into final address when user chooses */
-useSubCopyBtn.onclick = function(){
-  const v = subHidden.value || '';
-  if(!v){
-    alert('No sub-area selected to copy.');
-    return;
-  }
-  // only copy if manual field is empty or user confirms overwrite
-  if(finalAddr.value && finalAddr.value.trim() !== ''){
-    if(!confirm('Replace existing final address with selected sub-area?')) return;
-  }
-  finalAddr.value = v;
-  finalAddr.focus();
-};
-
-/* search */
-sheetSearch.oninput = buildList;
-
-/* close events */
-sheetDoneBtn.onclick = closeSheet;
-sheetClose.onclick = closeSheet;
-sheetBackdrop.onclick = closeSheet;
-
-/* area change: clear selected subarea and hide copy button */
-areaEl.addEventListener('change', function(){
-  subHidden.value = '';
-  subLabel.textContent = 'Choose sub-area';
-  useSubCopyBtn.style.display = 'none';
-});
-
-/* keyboard: escape closes */
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape' && sheet.getAttribute('aria-hidden') === 'false') closeSheet();
-});
-
-/* open handler */
-openBtn.addEventListener('click', openSheet);
-
-/* finalAddress typing updates nothing until user submits; we keep subHidden independent.
-   Optionally if you want, uncomment below to sync manual typing to subHidden:
-   finalAddr.addEventListener('input', ()=>{ subHidden.value = finalAddr.value.trim(); });
-*/
-
 /* ---------- form submission validation ---------- */
 const form = document.getElementById('pickupForm');
-form.addEventListener('submit', function(e){
-  // keep default HTML required checks — but also ensure at least one of subarea or finalAddress present
-  const hasSub = !!(subHidden.value && subHidden.value.trim());
-  const hasFinal = !!(finalAddr.value && finalAddr.value.trim());
-  if(!hasSub && !hasFinal){
-    e.preventDefault();
-    alert('Please choose a sub-area OR enter your full address manually in "Final address".');
-    finalAddr.focus();
-    return;
-  }
-
-  // If you want to let the browser POST to your Google script directly, DO NOT preventDefault.
-  // For safe testing the form was previously prevented: here we allow real submission.
-  // (If you want preview/debug, you can preventDefault and show payload)
-  // Example: to debug, uncomment the block below and comment out return;.
-  //
-  // e.preventDefault();
-  // const payload = new FormData(form);
-  // let preview = 'Submitting — preview\n\n';
-  // for (const [k,v] of payload.entries()) preview += `${k}: ${v}\n`;
-  // alert(preview);
-});
+if(form){
+  form.addEventListener('submit', function(e){
+    // Form validation is handled by HTML5 required attributes
+    // No additional validation needed
+  });
+}
 })();
 </script>
 

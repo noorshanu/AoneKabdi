@@ -33,9 +33,9 @@ const FORM_HEADERS = {
     'Name',
     'Phone',
     'Category',
-    'Area',
-    'Sub-area',
-    'Final Address',
+    'District',
+    'Current Location',
+    'Pincode',
     'Pickup Date',
     'Pickup Time',
     'Source'
@@ -245,8 +245,8 @@ function getRowData(formType, formData) {
         getValue('phone'),
         getValue('category'),
         getValue('area'),
-        getValue('subarea'),
-        getValue('finalAddress'),
+        getValue('currentLocation'),
+        getValue('pincode'),
         getValue('date'),
         getValue('time'),
         getValue('source')
