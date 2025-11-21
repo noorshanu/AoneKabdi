@@ -421,16 +421,16 @@
   </footer>
 
   <!-- bcryptjs library -->
-  <script src="../cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
 
   <!-- html2canvas for screenshot (optional) -->
-  <script src="../cdn.jsdelivr.net/npm/html2canvas%401.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
     /******** CONFIG: Put your bcrypt hash here (generate locally) ********/
-    const PASSWORD_HASH = 'REPLACE_WITH_BCRYPT_HASH';
+    const PASSWORD_HASH = '$2b$10$GC4x72xa00QyMBCB.cD4MuUlKAp0A3u2dIs/.vSf8SAmp/0Bq.9Ga';
 
     const DEFAULT_RATES = [
       { idKey:'newspaper', sl:1, name:'Newspaper', unit:'kg', rate:8 },
@@ -668,8 +668,8 @@
       rows.forEach(r=>{ const tr = document.createElement('tr'); const td1 = document.createElement('td'); td1.textContent = r.name; const td2 = document.createElement('td'); td2.textContent = r.unit; const td3 = document.createElement('td'); td3.style.textAlign = 'right'; td3.textContent = (r.unit==='pc') ? ('₹ ' + Number(r.rate).toLocaleString()) : ('₹ ' + Number(r.rate).toLocaleString() + ' /kg'); tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tbody.appendChild(tr); });
       table.appendChild(tbody); snap.appendChild(table); snap.style.position = 'fixed'; snap.style.left = '-9999px'; document.body.appendChild(snap);
       if(window.html2canvas){
-        html2canvas(snap, { scale: 2, backgroundColor: '#fff' }).then(canvas=>{ canvas.toBlob(function(blob){ const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'rates-3.html'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url); snap.remove(); }, 'image/png'); }).catch(err=>{ snap.remove(); alert('Screenshot failed: ' + err); });
-      } else { const w = window.open('', '_blank'); w.document.write('<html><head><title>Rates</title><style>body{font-family:Arial;padding:18px;color:#000}table{width:100%;border-collapse:collapse}th,td{padding:8px;border-bottom:1px solid #ddd;text-align:left}th{font-weight:800}</style></head><body>' + snap.innerHTML + '</body></html>'); w.document.close(); }
+        html2canvas(snap, { scale: 2, backgroundColor: '#fff' }).then(canvas=>{ canvas.toBlob(function(blob){ const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'rates_screenshot.png'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url); snap.remove(); }, 'image/png'); }).catch(err=>{ snap.remove(); alert('Screenshot failed: ' + err); });
+      } else { const w = window.open('', '_blank'); w.document.write('<html><head><title>Rates</title><style>body{font-family:Arial;padding:18px;color:#000}table{width:100%;border-collapse:collapse}th,td{padding:8px;border-bottom:1px solid #ddd;text-align:left}th{font-weight:800}</style></head><body>' + snap.innerHTML + '</body></html>'); w.document.close(); snap.remove(); }
     }
 
     /* Attach screenshot handler to the single screenshotBtn (do NOT create a new button) */
