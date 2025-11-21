@@ -453,10 +453,8 @@
   </div>
 
   <!-- scripts -->
-  <script src="../cdn.jsdelivr.net/npm/html2canvas%401.4.1/dist/html2canvas.min.js"></script>
-
-
-  <script src="../cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
 
   <script>
     
@@ -491,8 +489,8 @@
       ['fridge_small','Frize (Small)','pc',200]
     ];
 
-    // PASSWORD_HASH constant (leave as sentinel to allow demo fallback '@0825')
-    const PASSWORD_HASH = 'REPLACE_WITH_BCRYPT_HASH';
+    
+    const PASSWORD_HASH = '$2b$10$GC4x72xa00QyMBCB.cD4MuUlKAp0A3u2dIs/.vSf8SAmp/0Bq.9Ga';
 
     // Utility: slugify label to create safe id
     function slugify(text){
@@ -952,13 +950,33 @@
           if(pwd === '@0825'){ loginModal.style.display = 'none'; openAdmin(); return; } else { loginMsg.textContent = 'Incorrect password '; return; }
         }
 
+        // Check if bcrypt is loaded, otherwise use simple password match
+        if(typeof bcrypt === 'undefined' || !bcrypt || !bcrypt.compareSync){
+          // Fallback: direct password comparison (less secure but works)
+          console.warn('bcrypt not loaded, using direct comparison');
+          if(pwd === 'Hani@0812'){ 
+            loginModal.style.display = 'none'; 
+            openAdmin(); 
+            return; 
+          } else { 
+            loginMsg.textContent = 'Incorrect password'; 
+            return; 
+          }
+        }
+
         // use bcryptjs compareSync (bcrypt is loaded above)
         try {
           const ok = bcrypt.compareSync(pwd, PASSWORD_HASH);
           if(ok){ loginModal.style.display = 'none'; openAdmin(); return; } else { loginMsg.textContent = 'Incorrect password'; return; }
         } catch(err){
           console.error('bcrypt compare error', err);
-          loginMsg.textContent = 'Login error';
+          // Fallback on error
+          if(pwd === 'Hani@0812'){ 
+            loginModal.style.display = 'none'; 
+            openAdmin(); 
+          } else {
+            loginMsg.textContent = 'Incorrect password';
+          }
         }
       });
 
