@@ -467,7 +467,7 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     /******** CONFIG: Put your bcrypt hash here (generate locally) ********/
-    const PASSWORD_HASH = '$2b$10$GC4x72xa00QyMBCB.cD4MuUlKAp0A3u2dIs/.vSf8SAmp/0Bq.9Ga';
+    const PASSWORD_HASH = '$2b$10$gFojkiukpQ48sDvRFWkcw.jrV.8QO.jodT9FY8zXd28Os/G2lCse6';
 
     const DEFAULT_RATES = [
       { idKey:'newspaper', sl:1, name:'Newspaper', unit:'kg', rate:8 },
@@ -618,14 +618,14 @@
       const pwd = adminPasswordInput.value || '';
       if(!pwd){ loginMsg.textContent = 'Enter password'; return; }
       if(PASSWORD_HASH === 'REPLACE_WITH_BCRYPT_HASH' || !PASSWORD_HASH){
-        if(pwd === '@0825'){ loginModal.style.display = 'none'; openAdmin(); return; } else { loginMsg.textContent = 'Incorrect password'; return; }
+        if(pwd === 'Hani@0812'){ loginModal.style.display = 'none'; openAdmin(); return; } else { loginMsg.textContent = 'Incorrect password'; return; }
       }
       // Check if bcrypt is available
       if(typeof bcrypt === 'undefined' || !bcrypt || !bcrypt.compareSync){
         console.error('bcrypt library not loaded');
         loginMsg.textContent = 'Security library not loaded. Please refresh the page.';
         // Fallback: allow simple password check if bcrypt fails to load
-        if(pwd === '@0825'){ 
+        if(pwd === 'Hani@0812'){ 
           loginModal.style.display = 'none'; 
           openAdmin(); 
           return; 
