@@ -420,8 +420,26 @@
     </div>
   </footer>
 
-  <!-- bcryptjs library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
+  <!-- bcryptjs library - load with integrity check -->
+  <script>
+    // Load bcryptjs with fallback
+    (function loadBcrypt() {
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js';
+      script.integrity = 'sha512-YW7sMSdP7U9sMkA3m9m0I8S+TOlkD4f7KXl7hi3r8KT2RF4sS6kRzc3T2nMGjV8+T2up7ovbXbDkX5VgGyRSCA==';
+      script.crossOrigin = 'anonymous';
+      script.onerror = function() {
+        console.warn('Primary bcryptjs CDN failed, trying fallback...');
+        const fallback = document.createElement('script');
+        fallback.src = 'https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js';
+        fallback.onerror = function() {
+          console.error('Both bcryptjs CDNs failed to load');
+        };
+        document.head.appendChild(fallback);
+      };
+      document.head.appendChild(script);
+    })();
+  </script>
 
   <!-- html2canvas for screenshot (optional) -->
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
@@ -581,12 +599,29 @@
       const pwd = adminPasswordInput.value || '';
       if(!pwd){ loginMsg.textContent = 'Enter password'; return; }
       if(PASSWORD_HASH === 'REPLACE_WITH_BCRYPT_HASH' || !PASSWORD_HASH){
-        if(pwd === '@0825'){ loginModal.style.display = 'none'; openAdmin(); return; } else { loginMsg.textContent = 'Incorrect password (Incorrect password)'; return; }
+        if(pwd === '@0825'){ loginModal.style.display = 'none'; openAdmin(); return; } else { loginMsg.textContent = 'Incorrect password'; return; }
+      }
+      // Check if bcrypt is available
+      if(typeof bcrypt === 'undefined' || !bcrypt || !bcrypt.compareSync){
+        console.error('bcrypt library not loaded');
+        loginMsg.textContent = 'Security library not loaded. Please refresh the page.';
+        // Fallback: allow simple password check if bcrypt fails to load
+        if(pwd === '@0825'){ 
+          loginModal.style.display = 'none'; 
+          openAdmin(); 
+          return; 
+        } else { 
+          loginMsg.textContent = 'Incorrect password'; 
+          return; 
+        }
       }
       try {
         const ok = bcrypt.compareSync(pwd, PASSWORD_HASH);
         if(ok){ loginModal.style.display = 'none'; openAdmin(); return; } else { loginMsg.textContent = 'Incorrect password'; return; }
-      } catch(e){ console.error('bcrypt compare error', e); loginMsg.textContent = 'Login error'; }
+      } catch(e){ 
+        console.error('bcrypt compare error', e); 
+        loginMsg.textContent = 'Login error: ' + (e.message || 'Unknown error');
+      }
     });
 
     adminPasswordInput.addEventListener('keydown', function(ev){ if(ev.key === 'Enter') loginSubmit.click(); });
