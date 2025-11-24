@@ -49,27 +49,27 @@
   <style>
     
     :root{
-      --ktm-orange:#ff6600;
-      --ktm-green:#21a462;
-      --text-on-dark:#ffffff;
-      --muted:#cfcfcf;
+      --ktm-orange:#ff7300;
+      --ktm-green:#22c55e;
+      --text-on-dark:#000000;
+      --muted:#7b8a84;
       --card-radius:14px;
-      --panel-shadow: 0 18px 50px rgba(0,0,0,0.6);
-      --glass: rgba(255,255,255,0.03);
-      --neon: #18ffff;
+      --panel-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --glass: #72c28fab;
+      --neon: #22c55e;
       --maxw:1200px;
     }
 
-    body{ margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; background: linear-gradient(180deg,#0b0b0b,#121212); color:var(--muted); -webkit-font-smoothing:antialiased; }
+    body{ margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; background: #ffffff; color:#000; -webkit-font-smoothing:antialiased; }
     .container{ max-width:var(--maxw); margin:0 auto; padding:22px; box-sizing:border-box; }
 
-    header.site-header{ background: rgba(0,0,0,0.45); backdrop-filter: blur(6px); position:sticky; top:0; z-index:140; border-bottom:1px solid rgba(255,255,255,0.04); }
+    header.site-header{ background: #ffffff; backdrop-filter: blur(6px); position:sticky; top:0; z-index:140; border-bottom:1px solid rgba(0,0,0,0.08); }
     .header-inner{ display:flex; align-items:center; justify-content:space-between; padding:8px 0; }
     .brand img, .brand svg { height:70px !important; width:auto !important; display:block !important; background:transparent !important; border:none !important; box-shadow:none !important; }
 
     nav.nav { display:flex; gap:14px; align-items:center; }
-    nav.nav a { color:var(--text-on-dark); text-decoration:none; font-weight:700; padding:6px 10px; border-radius:8px; }
-    nav.nav a.active { color: var(--ktm-orange); }
+    nav.nav a { color:#000; text-decoration:none; font-weight:700; font-size:14px; padding:6px 10px; border-radius:8px; }
+    nav.nav a:hover, nav.nav a.active { color: #22c55e; background:rgba(34,197,94,0.05); }
 
     .hero {
       margin-top:18px;
@@ -78,7 +78,7 @@
       position:relative;
       color:var(--text-on-dark);
       background:
-        linear-gradient(180deg, rgba(11,11,11,0.45), rgba(11,11,11,0.45)),
+        linear-gradient(180deg, #72c28fab, #72c28fab),
         url('assets/career-hero.html') center/cover no-repeat;
       padding:56px 22px;
       box-shadow: var(--panel-shadow);
@@ -95,67 +95,77 @@
       align-items: center;
     }
     .hero-left{ flex:1 1 0%; min-width:260px; }
-    .hero h1{ margin:0 0 10px; color:var(--ktm-orange); font-size:clamp(1.6rem, 3.2vw, 2.6rem); line-height:1; font-weight:900; text-shadow:0 10px 30px rgba(0,0,0,0.6); }
-    .hero p.lead{ color:var(--muted); max-width:780px; margin:0 0 16px; font-size:1.05rem; line-height:1.6; }
-    .hero .cta{ display:inline-block; padding:12px 18px; border-radius:10px; background:linear-gradient(90deg,var(--ktm-orange),#ff8a3d); color:#000; font-weight:800; text-decoration:none; box-shadow:0 12px 30px rgba(255,102,0,0.08); margin-right:12px; }
+    .hero h1{ margin:0 0 10px; color:#ff7300; font-size:clamp(1.6rem, 3.2vw, 2.6rem); line-height:1; font-weight:900; text-shadow:none; }
+    .hero p.lead{ color:#000; max-width:780px; margin:0 0 16px; font-size:1.05rem; line-height:1.6; }
+    .hero .cta{ display:inline-block; padding:12px 18px; border-radius:10px; background:#22c55e; color:#000; font-weight:800; text-decoration:none; box-shadow:0 4px 12px rgba(34,197,94,0.2); margin-right:12px; transition: all 0.2s ease; }
+    .hero .cta:hover{ background:#16a34a; box-shadow:0 6px 16px rgba(34,197,94,0.3); }
 
     .hero-right{
       flex: 0 0 360px;
       width:360px;
       min-width:240px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:12px; padding:16px; border:1px solid rgba(255,255,255,0.04);
+      background: #72c28fab;
+      border:2px solid #22c55f;
+      border-radius:12px; padding:16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-    .hero-right h4{ margin:0 0 8px; color:var(--ktm-green); font-size:1.1rem; }
-    .hero-right .stat{ font-size:1.6rem; font-weight:900; color:var(--ktm-orange); }
+    .hero-right h4{ margin:0 0 8px; color:#22c55e; font-size:1.1rem; font-weight:800; }
+    .hero-right .stat{ font-size:1.6rem; font-weight:900; color:#ff7300; }
 
     .content { display:grid; grid-template-columns: 1fr 420px; gap:22px; margin-top:28px; align-items:start; }
     .panel {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.04);
-      padding:20px; border-radius:12px; box-shadow:var(--panel-shadow); color:var(--text-on-dark);
+      background: #72c28fab;
+      border:2px solid #22c55f;
+      padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); color:#000;
     }
 
-    .apply-form label { display:block; font-weight:700; color:#fff; margin:8px 0 6px; }
+    .apply-form label { display:block; font-weight:700; color:#000; margin:8px 0 6px; }
     .apply-form input[type="text"], .apply-form input[type="email"], .apply-form input[type="tel"],
     .apply-form input[type="number"], .apply-form select, .apply-form textarea, .apply-form input[type="file"] {
-      width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);
-      background: rgba(255,255,255,0.03); color:#fff; box-sizing:border-box; margin-bottom:10px;
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(0,0,0,0.12);
+      background: #fff; color:#000; box-sizing:border-box; margin-bottom:10px;
     }
     .apply-form textarea { min-height:120px; resize:vertical; }
     .apply-form .row{ display:flex; gap:10px; }
     .apply-form .col{ flex:1; }
 
     .apply-form button.submit {
-      background: linear-gradient(90deg,var(--ktm-orange), #ff8a3d); color:#000; padding:12px 16px; border-radius:10px; font-weight:900; border:0; cursor:pointer;
-      box-shadow: 0 14px 40px rgba(255,102,0,0.08);
+      background: #22c55e; color:#fff; padding:12px 16px; border-radius:10px; font-weight:900; border:0; cursor:pointer;
+      box-shadow: 0 4px 12px rgba(34,197,94,0.2);
       display:inline-flex; gap:10px; align-items:center;
+      transition: all 0.2s ease;
+    }
+    .apply-form button.submit:hover {
+      background: #16a34a;
+      box-shadow: 0 6px 16px rgba(34,197,94,0.3);
     }
 
     .edu-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:8px; margin:8px 0 14px; }
-    .edu-item { display:flex; align-items:center; gap:8px; color:#fff; font-weight:700; }
+    .edu-item { display:flex; align-items:center; gap:8px; color:#000; font-weight:700; }
     .edu-item input[type="checkbox"]{ transform:scale(1.05); }
 
     .section { margin-bottom:18px; }
-    .section h3 { margin:0 0 8px; color:var(--ktm-orange); font-size:1.2rem; font-weight:900; }
-    .section p, .section ul { color:var(--muted); line-height:1.6; margin:0 0 8px; }
+    .section h3 { margin:0 0 8px; color:#ff7300; font-size:1.2rem; font-weight:900; }
+    .section p, .section ul { color:#000; line-height:1.6; margin:0 0 8px; }
     .section ul { padding-left:18px; }
     .bullet { margin:10px 0; display:flex; gap:10px; align-items:flex-start; }
-    .bullet .icon { color:var(--ktm-green); font-weight:900; margin-top:2px; }
-    .bullet strong { color:#fff; display:block; margin-bottom:4px; }
+    .bullet .icon { color:#22c55e; font-weight:900; margin-top:2px; }
+    .bullet strong { color:#000; display:block; margin-bottom:4px; }
 
     .accent-hero {
       margin-top:18px; border-radius:12px; overflow:hidden; position:relative;
       background:
-        linear-gradient(180deg, rgba(11,11,11,0.48), rgba(11,11,11,0.48)),
+        linear-gradient(180deg, #72c28fab, #72c28fab),
         url('assets/career-bg-1.html') center/cover no-repeat;
+        border:2px solid #22c55f;
       padding:24px; box-shadow:var(--panel-shadow);
     }
     .accent-secondary {
       margin-top:18px; border-radius:12px; overflow:hidden; position:relative;
       background:
-        linear-gradient(180deg, rgba(11,11,11,0.36), rgba(11,11,11,0.36)),
+        linear-gradient(180deg, #72c28fab, #72c28fab),
         url('assets/career-bg-2.html') center/cover no-repeat;
+        border:2px solid #22c55f;
       padding:18px; box-shadow:var(--panel-shadow);
     }
 
@@ -171,20 +181,23 @@
       .hero h1 { font-size:1.5rem; }
     }
 
-    .muted { color:var(--muted); }
+    .muted { color:#7b8a84; }
 
     /* mobile collapsible nav (kept same behavior) */
     #mobile-collapsible-nav-inject { display: none; }
     @media (max-width: 768px) {
       nav.nav { display: none !important; }
       #mobile-collapsible-nav-inject { display:flex; align-items:center; gap:8px; position:relative; z-index:210; }
-      .hamburger { width:46px; height:46px; display:inline-flex; align-items:center; justify-content:center; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:8px; cursor:pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.6); transition: transform 160ms ease, background 160ms ease; flex-direction: column; gap:4px; }
-      .hamburger-dot { display:block; width:6px; height:6px; border-radius:50%; background:#fff; box-shadow: 0 1px 0 rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.35) inset; transition: transform .22s ease, opacity .18s ease; }
+      .hamburger { width:46px; height:46px; display:inline-flex; align-items:center; justify-content:center; background: rgba(255,255,255,0.95); border:1px solid rgba(0,0,0,0.08); border-radius:12px; padding:8px; cursor:pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: transform 160ms ease, background 160ms ease; flex-direction: column; gap:4px; }
+      .hamburger-dot { display:block; width:6px; height:6px; border-radius:50%; background:#000; box-shadow: 0 1px 0 rgba(0,0,0,0.1); transition: transform .22s ease, opacity .18s ease; }
       .hamburger.open .hamburger-dot:nth-child(1) { transform: translateY(6px) rotate(45deg) scaleX(0.9); }
       .hamburger.open .hamburger-dot:nth-child(2) { opacity:0; transform: scale(0.4); }
       .hamburger.open .hamburger-dot:nth-child(3) { transform: translateY(-6px) rotate(-45deg) scaleX(0.9); }
-      #mobile-collapsible-nav-inject .collapsible-menu { position:absolute; left:8px; top:58px; width:260px; max-height:0; overflow:hidden; transition: max-height 300ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease, transform 220ms ease; opacity:0; transform-origin: top left; transform: translateY(-6px) scale(.98); background: linear-gradient(180deg, rgba(13,13,13,0.98), rgba(9,9,9,0.98)); backdrop-filter: blur(8px) saturate(120%); border-radius: 14px; border: 1px solid rgba(255,255,255,0.04); box-shadow: 0 20px 60px rgba(0,0,0,0.7); }
+      #mobile-collapsible-nav-inject .collapsible-menu { position:absolute; left:8px; top:58px; width:260px; max-height:0; overflow:hidden; transition: max-height 300ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease, transform 220ms ease; opacity:0; transform-origin: top left; transform: translateY(-6px) scale(.98); background: #ffffff; backdrop-filter: blur(8px) saturate(120%); border-radius: 14px; border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
       #mobile-collapsible-nav-inject .collapsible-menu.open { opacity: 1; transform: translateY(0) scale(1); max-height: 640px; }
+      #mobile-collapsible-nav-inject .collapsible-list { list-style:none; margin:10px; padding:10px; display:flex; flex-direction:column; gap:8px; }
+      #mobile-collapsible-nav-inject .collapsible-list a { display:block; padding:10px 12px; border-radius:10px; text-decoration:none; color:#000; font-weight:700; }
+      #mobile-collapsible-nav-inject .collapsible-list a:hover { background: rgba(34,197,94,0.1); color: #16a34a; }
     }
 
     html, body { overflow-x: hidden; }
@@ -219,7 +232,7 @@
 
 .cs-control {
   width:100%;
-  background:#ff6a00;
+  background:#22c55e;
   color:#fff;
   padding:12px;
   border-radius:8px;
@@ -332,7 +345,7 @@ aside.panel {
     <section class="hero" aria-labelledby="career-title">
       <div class="hero-inner">
         <div class="hero-left">
-          <h1 id="career-title" style="font-size:50px;font-weight:900;line-height:1.2;text-align:center;margin-bottom:20px;background:linear-gradient(90deg,#ff6600,#ff8533,#ffffff,#000000);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:2px 2px 8px rgba(0,0,0,0.6);letter-spacing:2px;">Work With Aone Kabadi </h1>
+          <h1 id="career-title" style="font-size:50px;font-weight:900;line-height:1.2;text-align:center;margin-bottom:20px;color:#ff7300;letter-spacing:2px;">Work With Aone Kabadi </h1>
 
           <p class="lead">Join our mission to make India cleaner and promote circular economy. We serve households, businesses and institutions — across scrap collection, segregation, digital reporting and capacity building. If you're motivated, we want you on our team.</p>
 
@@ -340,7 +353,7 @@ aside.panel {
 
           <div style="margin-top:14px; text-align:center;">
             <a class="cta" href="#apply-form">Apply Now</a>
-            <a class="cta" style="background:transparent;border:2px solid rgba(255,255,255,0.06);color:var(--text-on-dark);padding:10px 14px;border-radius:10px;margin-left:8px;text-decoration:none;font-weight:800" href="maillto:aonekabadi@gmail.com">Email HR</a>
+            <a class="cta" style="background:transparent;border:2px solid #22c55e;color:#000;padding:10px 14px;border-radius:10px;margin-left:8px;text-decoration:none;font-weight:800;transition: all 0.2s ease;" href="maillto:aonekabadi@gmail.com">Email HR</a>
           </div>
         </div>
 
@@ -445,7 +458,7 @@ aside.panel {
 
       <!-- Right column: application form -->
       <aside class="panel" id="apply-form" aria-labelledby="apply-heading">
-  <h3 id="apply-heading" style="color:var(--ktm-orange);margin:0 0 10px">Apply for a Role</h3>
+  <h3 id="apply-heading" style="color:#ff7300;margin:0 0 10px;font-weight:900">Apply for a Role</h3>
   <p class="muted" style="margin:0 0 12px">Fill the form below. We review applications in 7-10 business days.</p>
 
   <form id="careerForm"
@@ -566,8 +579,8 @@ aside.panel {
     </div>
 
     <section style="margin-top:22px" class="panel">
-      <h3 style="margin:0 0 8px; color:var(--ktm-orange)">Hiring &amp; Operations — Quick Notes</h3>
-      <ul style="color:var(--muted); margin:0; padding-left:18px;">
+      <h3 style="margin:0 0 8px; color:#ff7300;font-weight:900">Hiring &amp; Operations — Quick Notes</h3>
+      <ul style="color:#000; margin:0; padding-left:18px;">
         <li>Field &amp; operations roles may require travel and physical handling of scrap. Safety training is provided.</li>
         <li>We prioritize local candidates for collection &amp; community roles to ensure quicker response time.</li>
         <li>Selected candidates will undergo orientation and capacity building sessions as part of onboarding.</li>
@@ -581,9 +594,9 @@ aside.panel {
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
       <div style="display:flex;align-items:center;gap:12px">
         <img src="assets/logo.png" height="36" alt="Aone Kabadi " style="background:transparent">
-        <div style="color:var(--muted)">Helping build a greener India — one pickup at a time.</div>
+        <div style="color:#fff">Helping build a greener India — one pickup at a time.</div>
       </div>
-      <div style="color:var(--muted)">© <span id="year">2025</span> Aone Kabadi </div>
+      <div style="color:#fff">© <span id="year">2025</span> Aone Kabadi </div>
     </div>
   </footer>
 

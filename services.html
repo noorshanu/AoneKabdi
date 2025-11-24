@@ -42,36 +42,36 @@
   <style>
    
     :root{
-      --ktm-orange:#ff6600;
+      --ktm-orange:#ff7300;
       --ktm-orange-2:#ff8a3d;
-      --muted:#cfcfcf;
-      --muted-2: rgba(255,255,255,0.72);
-      --bg-1: #070707;
-      --bg-2: linear-gradient(180deg,#0b0b0b,#121212);
-      --card-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      --glass: rgba(255,255,255,0.02);
+      --muted:#7b8a84;
+      --muted-2: #666;
+      --bg-1: #ffffff;
+      --bg-2: #ffffff;
+      --card-bg: #72c28fab;
+      --glass: #72c28fab;
       --maxw:1150px;
       --radius:14px;
-      --panel-shadow: 0 18px 50px rgba(0,0,0,0.6);
+      --panel-shadow: 0 4px 12px rgba(0,0,0,0.08);
       --logo-desktop:78px;
       --logo-mobile:56px;
       --header-padding-vertical:6px;
       --pill-left:22px;
       --pill-size:46px;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color-scheme: dark;
+      color-scheme: light;
     }
     *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:var(--bg-2): linear-gradient(180deg,#0b0b0b,#121212);color:var(--muted);-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    html,body{height:100%;margin:0;background:#ffffff;color:#000;-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
     img{max-width:100%;height:auto;display:block}
     a{color:var(--ktm-orange);text-decoration:none}
     .container{ max-width:var(--maxw); margin:0 auto; padding:20px; box-sizing:border-box; }
 
         header.site-header{
       position: sticky; top: 0; z-index: 1400;
-      background: rgba(0,0,0,0.45);
+      background: #ffffff;
       backdrop-filter: blur(6px) saturate(120%);
-      border-bottom:1px solid rgba(255,255,255,0.04);
+      border-bottom:1px solid rgba(0,0,0,0.08);
       padding: calc(var(--header-padding-vertical) + 2px) 0;
     }
     .header-inner{
@@ -84,9 +84,8 @@
 
 
     nav.nav { display:flex; gap:16px; align-items:center; justify-content:center; flex:1; }
-    nav.nav a { color:#fff; text-decoration:none; padding:8px 12px; border-radius:10px; font-weight:700; transition: background .16s ease, transform .12s ease; }
-    nav.nav a:hover { transform: translateY(-2px); }
-    nav.nav a.active { color:#fff; background: linear-gradient(90deg,var(--ktm-orange),var(--ktm-orange-2)); box-shadow: 0 8px 24px rgba(255,102,0,0.10); }
+    nav.nav a { color:#000; text-decoration:none; padding:8px 12px; border-radius:10px; font-weight:700; font-size:14px; transition: background .16s ease, transform .12s ease; }
+    nav.nav a:hover, nav.nav a.active { color:#22c55e; background:rgba(34,197,94,0.05); transform: translateY(-2px); }
 
   
     .header-actions { display:flex; align-items:center; gap:12px; margin-left:auto; }
@@ -98,14 +97,14 @@
       #mobile-collapsible-nav-inject { display:flex; align-items:center; gap:8px; position: absolute; left: var(--pill-left); top: calc(var(--header-padding-vertical) + 8px); z-index:210; }
       .hamburger {
         width:var(--pill-size); height:var(--pill-size); display:inline-flex; align-items:center; justify-content:center;
-        background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-        border:1px solid rgba(255,255,255,0.06);
-        border-radius:12px; padding:8px; cursor:pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        background: rgba(255,255,255,0.95);
+        border:1px solid rgba(0,0,0,0.08);
+        border-radius:12px; padding:8px; cursor:pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         transition: transform 160ms ease, background 160ms ease;
         gap:5px; flex-direction:column;
       }
       .hamburger:active{ transform: scale(.98); }
-      .hamburger-line{ width:18px; height:2px; border-radius:2px; background:#fff; transition: transform .22s ease, opacity .18s ease; display:block; }
+      .hamburger-line{ width:18px; height:2px; border-radius:2px; background:#000; transition: transform .22s ease, opacity .18s ease; display:block; }
       .hamburger.open .hamburger-line:nth-child(1){ transform: translateY(5px) rotate(45deg); }
       .hamburger.open .hamburger-line:nth-child(2){ opacity:0; transform: scale(0.4); }
       .hamburger.open .hamburger-line:nth-child(3){ transform: translateY(-5px) rotate(-45deg); }
@@ -115,36 +114,39 @@
         position:absolute; left:8px; top:58px; width: calc(100vw - 32px); max-width:340px;
         overflow:hidden; max-height:0; opacity:0; transform: translateY(-6px) scale(.98);
         transition: max-height 320ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease, transform 220ms ease;
-        background: linear-gradient(180deg, rgba(13,13,13,0.98), rgba(9,9,9,0.98));
-        border-radius:14px; border:1px solid rgba(255,255,255,0.04);
-        box-shadow: 0 20px 60px rgba(0,0,0,0.7); z-index:210;
+        background: #ffffff;
+        border-radius:14px; border:1px solid rgba(0,0,0,0.08);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15); z-index:210;
       }
       .collapsible-menu.open { opacity:1; transform: translateY(0) scale(1); max-height: 720px; }
 
       .collapsible-list{ list-style:none; margin:10px; padding:8px; display:flex; flex-direction:column; gap:8px; }
-      .collapsible-list a{ display:block; padding:12px 14px; border-radius:12px; text-decoration:none; color:#fff; font-weight:800; background: var(--glass); transition: transform .12s ease, background .12s ease; }
-      .collapsible-list a:hover, .collapsible-list a:focus{ background: rgba(255,102,0,0.08); color: var(--ktm-orange); transform: translateX(6px); outline:none; }
+      .collapsible-list a{ display:block; padding:12px 14px; border-radius:12px; text-decoration:none; color:#000; font-weight:800; background: transparent; transition: transform .12s ease, background .12s ease; }
+      .collapsible-list a:hover, .collapsible-list a:focus{ background: rgba(34,197,94,0.1); color: #22c55e; transform: translateX(6px); outline:none; }
       .brand { margin-left:auto; margin-right: 40px; } /* keep brand on the right on mobile */
       .brand img { height: var(--logo-mobile); }
     }
 
     
-    .hero { margin-top:18px; border-radius:16px; overflow:hidden; position:relative; color:#fff;
-      background:
-        linear-gradient(180deg, rgba(11,11,11,0.6), rgba(10,10,10,0.6));
-      padding:32px; box-shadow: var(--panel-shadow); border:1px solid rgba(255,255,255,0.03);
+    .hero { margin-top:18px; border-radius:16px; overflow:hidden; position:relative; color:#000;
+      background: #ffffff;
+      padding:32px; box-shadow: var(--panel-shadow); border:1px solid rgba(0,0,0,0.08);
     }
 
     .hero-grid{ display:grid; grid-template-columns: 1fr 420px; gap:30px; align-items:center; align-content:start; }
     .hero-left { padding-right:10px; }
-    .kicker { display:inline-block; background: rgba(255,102,0,0.08); color:var(--ktm-orange); padding:8px 10px; border-radius:8px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; font-size:13px; }
-    .hero-title { font-weight:900; font-size:clamp(30px,5.5vw,56px); margin:12px 0; color: linear-gradient(90deg,#fff,#ffd6b3); background: linear-gradient(90deg,#fff,#ffd6b3); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .hero-lead { color:var(--muted-2); font-size:16px; line-height:1.6; max-width:62ch; margin-bottom:18px; }
+    .kicker { display:inline-block; background: rgba(34,197,94,0.1); color:#22c55e; padding:8px 10px; border-radius:8px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; font-size:13px; }
+    .hero-title { font-weight:900; font-size:clamp(30px,5.5vw,56px); margin:12px 0; color: #ff7300; }
+    .hero-lead { color:#666; font-size:16px; line-height:1.6; max-width:62ch; margin-bottom:18px; }
 
     .cta-row { display:flex; gap:12px; flex-wrap:wrap; margin:12px 0 18px; }
-    .btn { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:800; cursor:pointer; text-decoration:none; }
-    .btn-primary { background: linear-gradient(90deg,var(--ktm-orange),var(--ktm-orange-2)); color:#000; box-shadow: 0 10px 30px rgba(255,102,0,0.12); }
-    .btn-ghost { background:transparent; border:2px solid rgba(255,255,255,0.06); color:#fff; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:800; cursor:pointer; text-decoration:none; transition: all 0.2s ease; }
+    .btn-primary { background: #22c55e; color:#fff; box-shadow: 0 4px 12px rgba(34,197,94,0.2); }
+    .btn-primary:hover { background: #16a34a; box-shadow: 0 6px 16px rgba(34,197,94,0.3); }
+    .btn-ghost { background:transparent; border:2px solid #22c55e; color:#000000; }
+    .btn-ghost:hover { background:rgba(34,197,94,0.05); }
+    .btn.outline { background:transparent; border:2px solid #22c55e; color:#000; padding:8px 12px; border-radius:8px; font-weight:700; }
+    .btn.outline:hover { background: rgba(34,197,94,0.05); }
 
     /* small feature badges to fill empty space */
     .feature-row { display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-top:14px; }
@@ -157,9 +159,9 @@
 
     /* cards grid expanded & denser */
     .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:18px; }
-    .card{ background: var(--card-bg); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); box-shadow: 0 10px 28px rgba(0,0,0,0.45); }
-    .card h3{ margin:0 0 8px; color:var(--ktm-orange); font-size:18px; }
-    .card p{ margin:0; color:var(--muted-2); font-size:14px; line-height:1.6; }
+    .card{ background: #72c28fab; padding:18px; border-radius:12px; border:2px solid #22c55f; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .card h3{ margin:0 0 8px; color:#ff7300; font-size:18px; font-weight:900; }
+    .card p{ margin:0; color:#000; font-size:14px; line-height:1.6; }
 
     /* section styles & two-col layout */
     .section{ margin-top:28px; padding:22px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01)); border-radius:12px; border:1px solid rgba(255,255,255,0.02); }
@@ -169,23 +171,24 @@
     /* contact banner updated */
     .contact-banner{ margin-top:26px; padding:18px; border-radius:12px; background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); display:flex; align-items:center; justify-content:space-between; gap:12px; border:1px solid rgba(255,255,255,0.02); }
     .contact-grid{ display:flex; gap:16px; align-items:center; justify-content:space-between; width:100%; flex-wrap:wrap; }
-    .contact-left h3{ margin:0; color:var(--ktm-orange); font-size:clamp(20px,2.8vw,26px); font-weight:900; }
-    .contact-left p{ margin:6px 0 0; color:var(--muted-2); }
+    .contact-left h3{ margin:0; color:#ff7300; font-size:clamp(20px,2.8vw,26px); font-weight:900; }
+    .contact-left p{ margin:6px 0 0; color:#666; }
     .contact-cta{ display:flex; gap:12px; align-items:center; }
 
     /* footer */
-    .site-footer{ margin-top:34px; padding:20px; border-top:1px solid rgba(255,255,255,0.03); color:var(--muted-2); }
+    .site-footer{ margin-top:34px; padding:20px; border-top:1px solid rgba(0,0,0,0.08); background:#000000; color:#fff; }
     .footer-grid{ display:flex; justify-content:space-between; align-items:center; gap:18px; }
 
     
-    /* Ensure the main section titles and subheadings pop in KTM orange */
+    /* Ensure the main section titles and subheadings pop in orange */
     .section h2,
     .feature h3,
     .card h3,
     .hero-title,
     .contact-left h3,
     .impact h3 {
-      color: var(--ktm-orange) !important;
+      color: #ff7300 !important;
+      font-weight: 900;
     }
 
     /* list labels like "Inspection:", "Price:" etc. */
@@ -367,39 +370,39 @@
 
   <div class="why-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; text-align:left; max-width:1100px; margin:0 auto;">
     <!-- Feature 1 -->
-    <div style="padding:18px; border-left:4px solid var(--ktm-orange,#ff6600); background:rgba(255,255,255,0.01); border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
-      <h3 style="color:#00bfff; margin:0 0 8px; font-size:18px;">How to Buy &amp; Sell Scrap</h3>
-      <p style="color:#cfcfcf; margin:0; font-size:14px;">Transparent pricing &amp; market insight so you get the best scrap rates every time.</p>
+    <div style="padding:18px; border-left:4px solid #22c55e; background:#a2d6b5; border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
+      <h3 style="color:#ff6600; margin:0 0 8px; font-size:18px;">How to Buy &amp; Sell Scrap</h3>
+      <p style="color:#000; margin:0; font-size:14px;">Transparent pricing &amp; market insight so you get the best scrap rates every time.</p>
     </div>
 
     <!-- Feature 2 -->
-    <div style="padding:18px; border-left:4px solid var(--ktm-orange,#ff6600); background:rgba(255,255,255,0.01); border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
-      <h3 style="color:#00bfff; margin:0 0 8px; font-size:18px;">Segregation Processes</h3>
-      <p style="color:#cfcfcf; margin:0; font-size:14px;">Source segregation SOPs and scrapyard layout to improve recovery and reduce contamination.</p>
+    <div style="padding:18px; border-left:4px solid #22c55e; background:#a2d6b5; border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
+      <h3 style="color:#ff6600; margin:0 0 8px; font-size:18px;">Segregation Processes</h3>
+      <p style="color:#000; margin:0; font-size:14px;">Source segregation SOPs and scrapyard layout to improve recovery and reduce contamination.</p>
     </div>
 
     <!-- Feature 3 -->
-    <div style="padding:18px; border-left:4px solid var(--ktm-orange,#ff6600); background:rgba(255,255,255,0.01); border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
-      <h3 style="color:#00bfff; margin:0 0 8px; font-size:18px;">Staff Training &amp; Knowledge</h3>
-      <p style="color:#cfcfcf; margin:0; font-size:14px;">Practical training modules for on-site staff to ensure handling, safety and correct categorisation.</p>
+    <div style="padding:18px; border-left:4px solid #22c55e; background:#a2d6b5; border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
+      <h3 style="color:#ff6600; margin:0 0 8px; font-size:18px;">Staff Training &amp; Knowledge</h3>
+      <p style="color:#000; margin:0; font-size:14px;">Practical training modules for on-site staff to ensure handling, safety and correct categorisation.</p>
     </div>
 
     <!-- Feature 4 -->
-    <div style="padding:18px; border-left:4px solid var(--ktm-orange,#ff6600); background:rgba(255,255,255,0.01); border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
-      <h3 style="color:#00bfff; margin:0 0 8px; font-size:18px;">Offline &amp; Online Marketing Support</h3>
-      <p style="color:#cfcfcf; margin:0; font-size:14px;">Local marketing, lead generation and digital presence to increase collections &amp; customers.</p>
+    <div style="padding:18px; border-left:4px solid #22c55e; background:#a2d6b5; border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
+      <h3 style="color:#ff6600; margin:0 0 8px; font-size:18px;">Offline &amp; Online Marketing Support</h3>
+      <p style="color:#000; margin:0; font-size:14px;">Local marketing, lead generation and digital presence to increase collections &amp; customers.</p>
     </div>
 
     <!-- Feature 5 -->
-    <div style="padding:18px; border-left:4px solid var(--ktm-orange,#ff6600); background:rgba(255,255,255,0.01); border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
-      <h3 style="color:#00bfff; margin:0 0 8px; font-size:18px;">Business Planning &amp; Operations</h3>
-      <p style="color:#cfcfcf; margin:0; font-size:14px;">Revenue planning, operational SOPs and franchising support to scale operations fast.</p>
+    <div style="padding:18px; border-left:4px solid #22c55e; background:#a2d6b5; border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
+      <h3 style="color:#ff6600; margin:0 0 8px; font-size:18px;">Business Planning &amp; Operations</h3>
+      <p style="color:#000; margin:0; font-size:14px;">Revenue planning, operational SOPs and franchising support to scale operations fast.</p>
     </div>
 
     <!-- Feature 6 -->
-    <div style="padding:18px; border-left:4px solid var(--ktm-orange,#ff6600); background:rgba(255,255,255,0.01); border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
-      <h3 style="color:#00bfff; margin:0 0 8px; font-size:18px;">Support &amp; Hand-holding</h3>
-      <p style="color:#cfcfcf; margin:0; font-size:14px;">From site inspection to commercial operations — we guide you until you’re profitable.</p>
+    <div style="padding:18px; border-left:4px solid #22c55e; background:#a2d6b5; border-radius:12px; transition:transform .2s ease, box-shadow .2s ease;">
+      <h3 style="color:#ff6600; margin:0 0 8px; font-size:18px;">Support &amp; Hand-holding</h3>
+      <p style="color:#000; margin:0; font-size:14px;">From site inspection to commercial operations — we guide you until you’re profitable.</p>
     </div>
   </div>
 </section>
@@ -409,39 +412,39 @@
   <div class="three-col" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;">
     
     <!-- Box 1: What We Do -->
-    <div style="background:rgba(255,255,255,0.02); border-radius:16px; padding:20px; border:1px solid rgba(255,255,255,0.05); box-shadow:0 0 18px rgba(255,102,0,0.25)">
+    <div style="background:#a2d6b5; border-radius:16px; padding:20px; border:1px solid rgb(255, 255, 255, 0.05); box-shadow:0 0 18px rgba(255,102,0,0.25)">
       <h2 style="color:#00bfff; font-size:clamp(24px,3vw,30px); font-weight:900; margin-bottom:12px; text-shadow:0 0 10px rgba(0,191,255,0.4)">What We Do</h2>
       <p class="muted" style="font-size:15px; margin-bottom:16px">Detailed operational support across the lifecycle of a scrap business — inspection, planning, set-up, operations and reporting.</p>
       <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; font-size:15px; line-height:1.5">
-        <li><span style="color:#00bfff;font-weight:700">Inspection:</span> <span style="color:#cfcfcf">We inspect premises and scrapyards to ensure collection and segregation compatibility.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Participation &amp; Planning:</span> <span style="color:#cfcfcf">Engage in local bidding/tenders and design scalable plans for disposal &amp; pickup frequency.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Scrapyard Set-up:</span> <span style="color:#cfcfcf">Make the scrapyard compatible with expected waste quantities and implement source-segregation &amp; storage.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Capacity Building:</span> <span style="color:#cfcfcf">Staff training and knowledge transfer to ensure correct handling and operational quality.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Assigning:</span> <span style="color:#cfcfcf">A dedicated scrap executive supervises segregation and storage within the premises.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Collection:</span> <span style="color:#cfcfcf">Scheduled pickups based on generation frequency — planned for convenience &amp; efficiency.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Transportation:</span> <span style="color:#cfcfcf">Segregated waste transported to Aone Kabadi  facilities for final segregation and recovery.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Maintenance:</span> <span style="color:#cfcfcf">Ensuring proper management and maintenance of the scrapyard, safety and infrastructure.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Reporting:</span> <span style="color:#cfcfcf">Daily record-keeping and monthly reports to track quantities and categories collected &amp; recycled.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Inspection:</span> <span style="color:#000">We inspect premises and scrapyards to ensure collection and segregation compatibility.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Participation &amp; Planning:</span> <span style="color:#000">Engage in local bidding/tenders and design scalable plans for disposal &amp; pickup frequency.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Scrapyard Set-up:</span> <span style="color:#000">Make the scrapyard compatible with expected waste quantities and implement source-segregation &amp; storage.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Capacity Building:</span> <span style="color:#000">Staff training and knowledge transfer to ensure correct handling and operational quality.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Assigning:</span> <span style="color:#000">A dedicated scrap executive supervises segregation and storage within the premises.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Collection:</span> <span style="color:#000">Scheduled pickups based on generation frequency — planned for convenience &amp; efficiency.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Transportation:</span> <span style="color:#000">Segregated waste transported to Aone Kabadi  facilities for final segregation and recovery.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Maintenance:</span> <span style="color:#000">Ensuring proper management and maintenance of the scrapyard, safety and infrastructure.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Reporting:</span> <span style="color:#000">Daily record-keeping and monthly reports to track quantities and categories collected &amp; recycled.</span></li>
       </ul>
     </div>
 
     <!-- Box 2: Key Benefits -->
-    <div style="background:rgba(255,255,255,0.02); border-radius:16px; padding:20px; border:1px solid rgba(255,255,255,0.05); box-shadow:0 0 18px rgba(255,102,0,0.25)">
+    <div style="background:#a2d6b5; border-radius:16px; padding:20px; border:1px solid rgb(255, 255, 255, 0.05); box-shadow:0 0 18px rgba(255,102,0,0.25)">
       <h2 style="color:#00bfff; font-size:clamp(22px,2.5vw,28px); font-weight:800; margin-bottom:12px; text-shadow:0 0 8px rgba(0,191,255,0.3)">Key Benefits</h2>
       <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; font-size:15px; line-height:1.5">
-        <li><span style="color:#00bfff;font-weight:700">Price:</span> <span style="color:#cfcfcf">Competitive scrap rates to improve margins.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Digitization:</span> <span style="color:#cfcfcf">Digital record keeping and transparent reporting for audits and operations.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Specialization:</span> <span style="color:#cfcfcf">Professionally managed operations with trained staff and SOPs.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Recognition:</span> <span style="color:#cfcfcf">Brand recognition and partnerships aligned with sustainability goals.</span></li>
-        <li><span style="color:#00bfff;font-weight:700">Compliance:</span> <span style="color:#cfcfcf">We help meet local regulatory (EPR &amp; municipal) requirements and documentation.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Price:</span> <span style="color:#000">Competitive scrap rates to improve margins.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Digitization:</span> <span style="color:#000">Digital record keeping and transparent reporting for audits and operations.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Specialization:</span> <span style="color:#000">Professionally managed operations with trained staff and SOPs.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Recognition:</span> <span style="color:#000">Brand recognition and partnerships aligned with sustainability goals.</span></li>
+        <li><span style="color:#ff6600;font-weight:700">Compliance:</span> <span style="color:#000">We help meet local regulatory (EPR &amp; municipal) requirements and documentation.</span></li>
       </ul>
     </div>
 
     <!-- Box 3: Impacts -->
-    <div style="background:rgba(255,255,255,0.02); border-radius:16px; padding:20px; border:1px solid rgba(255,255,255,0.05); box-shadow:0 0 18px rgba(255,102,0,0.25)">
+    <div style="background:#a2d6b5; border-radius:16px; padding:20px; border:1px solid rgb(255, 255, 255, 0.05); box-shadow:0 0 18px rgba(255,102,0,0.25)">
       <h2 style="color:#00bfff; font-size:clamp(22px,2.5vw,28px); font-weight:800; margin-bottom:12px; text-shadow:0 0 8px rgba(0,191,255,0.3)">Your Impacts &amp; Contribution</h2>
-      <p class="muted"><strong style="color:#00bfff">Environment:</strong> Divert waste from landfills via recycling and correct disposal — reducing greenhouse gas emissions and pollutants.</p>
-      <p class="muted"><strong style="color:#00bfff">Communities:</strong> Adopting sustainable goals fosters peaceful coexistence and improves local livelihoods through circular-economy jobs.</p>
+      <p class="muted"><strong style="color:#ff6600">Environment:</strong> Divert waste from landfills via recycling and correct disposal — reducing greenhouse gas emissions and pollutants.</p>
+      <p class="muted"><strong style="color:#ff6600">Communities:</strong> Adopting sustainable goals fosters peaceful coexistence and improves local livelihoods through circular-economy jobs.</p>
     </div>
 
   </div>
@@ -550,24 +553,25 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 64px;
-  height: 64px;
+  width: 76px;
+  height: 76px;
+  padding: 12px;
   background: #25d366;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 9999;
-  box-shadow:
-      0 6px 20px rgba(0,0,0,0.25),
-      0 0 20px rgba(37,211,102,0.45);
+  z-index: 99999;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28),
+    0 0 24px rgba(37, 211, 102, 0.45);
   animation: floatWater 3.5s ease-in-out infinite;
 }
 .whatsapp-float img {
-  width: 36px;
-  height: 36px;
+  width: 100%;
+  height: 100%;
   filter: drop-shadow(0 3px 3px rgba(0,0,0,0.25));
+  display: block;
 }
 @keyframes floatWater {
   0%   { transform: translateY(0); }
