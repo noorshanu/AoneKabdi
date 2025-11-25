@@ -2903,6 +2903,7 @@ footer.site-footer {
     max-width: 100% !important;
     box-sizing: border-box;
     margin: 0 0 18px 0 !important;
+   
   }
 
   /* Ensure booking card appears after the hero text on mobile */
@@ -3084,4 +3085,63 @@ footer.site-footer {
 .whatsapp-float:hover {
   transform: scale(1.08);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35), 0 0 25px rgba(37, 211, 102, 0.55);
+}
+
+/* ============================================================
+   Mobile navigation overhaul — always show links on small viewports
+   ============================================================ */
+@media (max-width: 768px) {
+  #mobile-collapsible-nav-inject {
+    display: none !important;
+  }
+
+  .site-header {
+    background: #ffffff !important;
+  }
+
+  .site-header .header-inner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 0 !important;
+  }
+
+  .site-header .brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .site-header .brand img {
+    height: 48px !important;
+  }
+
+  nav.nav {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+    margin-top: -12px;
+  }
+
+  nav.nav a {
+    flex: 1 1 calc(33.333% - 6px);
+    min-width: 0;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #000000;
+    font-weight: 700;
+    padding: 10px 8px;
+    border-radius: 8px;
+  }
+
+  nav.nav a:hover {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: #22c55e;
+    color: #000000;
+  }
 }
