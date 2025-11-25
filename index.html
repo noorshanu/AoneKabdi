@@ -1747,95 +1747,217 @@ With his direction, <strong>The Aone Kabadi</strong> has strengthened industry r
   }
 </style>
 
-<section class="container" id="services-list" style="padding:20px 20px 40px 20px; margin-top:0;">
+<section class="container" id="services-list" style="padding:56px 20px; margin-top:0;">
   <style>
-    /* Only header + spacing adjustments — cards kept unchanged in structure */
     #services-list {
-      text-align: center; /* center everything inside the section by default */
-      margin-top: 0;      /* ensure it sits flush with previous section */
-      padding-top: 20px;  /* reduced top padding to remove the green gap */
+      text-align: center;
+      margin-top: 0;
+      padding-top: 56px;
+      padding-bottom: 56px;
+      background: linear-gradient(180deg, #ffffff, #f8fffe);
     }
 
-    /* Title */
     #services-list .section-title {
-      margin: 0 auto 18px;
-      font-size: 2.2rem;        /* larger on desktop */
-      line-height: 1.02;
-      max-width: 880px;
+      margin: 0 auto 12px;
+      font-size: clamp(32px, 5vw, 42px);
+      line-height: 1.1;
+      max-width: 900px;
       font-weight: 900;
       letter-spacing: -0.5px;
-      color: #ff7300;
+      color: #0f172a;
       text-align: center;
     }
 
-    /* Cards container centered, with responsive columns */
+    #services-list .section-subtitle {
+      margin: 0 auto 40px;
+      font-size: 18px;
+      color: #64748b;
+      max-width: 700px;
+      text-align: center;
+    }
+
     #services-list .cards {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      justify-items: center;    /* center each card horizontally */
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      justify-items: stretch;
       align-items: stretch;
-      margin-top: 12px;         /* slightly reduced top margin */
+      margin-top: 32px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* Card sizing */
     #services-list .card {
       width: 100%;
-      max-width: 320px;         /* keeps cards balanced/centered */
-      text-align: left;         /* keep card text left-aligned on wide screens */
-      padding: 20px;
-      border-radius: 14px;
-      background: #72c28fab;
-      border: 2px solid #22c55f;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: left;
+      padding: 32px 24px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Card headings bigger */
+    #services-list .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    #services-list .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(34,197,94,0.15);
+      border-color: #22c55e;
+    }
+
+    #services-list .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    #services-list .card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 32px;
+      box-shadow: 0 8px 20px rgba(34,197,94,0.25);
+      transition: all 0.3s ease;
+    }
+
+    #services-list .card:hover .card-icon {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 12px 28px rgba(34,197,94,0.35);
+    }
+
     #services-list .card h3 {
-      font-size: 1.25rem;
-      margin: 0 0 8px;
-      color: #ff7300;
+      font-size: 1.4rem;
+      margin: 0 0 12px;
+      color: #0f172a;
       font-weight: 900;
+      line-height: 1.2;
     }
 
-    /* Responsive adjustments: tablets and phones */
+    #services-list .card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #64748b;
+      margin: 0;
+      flex: 1;
+    }
+
+    #services-list .card-link {
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #22c55e;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all 0.3s ease;
+    }
+
+    #services-list .card:hover .card-link {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    #services-list .card-link::after {
+      content: "→";
+      font-size: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    #services-list .card-link:hover::after {
+      transform: translateX(4px);
+    }
+
     @media (max-width: 1100px) {
-      #services-list .cards { grid-template-columns: repeat(2, 1fr); }
-      #services-list .section-title { font-size: 2rem; }
+      #services-list .cards { 
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
     }
 
     @media (max-width: 768px) {
       #services-list {
-        padding: 18px 12px 28px 12px;  /* compact on mobile */
+        padding: 40px 16px;
       }
       #services-list .section-title {
-        font-size: 2.4rem;      /* slightly bigger on mobile for emphasis */
+        font-size: 32px;
         margin-bottom: 12px;
+      }
+      #services-list .section-subtitle {
+        font-size: 16px;
+        margin-bottom: 32px;
       }
       #services-list .cards { 
         grid-template-columns: 1fr; 
-        gap: 14px;
-        align-items: stretch;
+        gap: 20px;
       }
       #services-list .card { 
-        max-width: 720px; 
-        margin: 0 auto;       /* center single column cards */
-        text-align: center;   /* center card content on small screens */
+        padding: 28px 20px;
+        text-align: center;
+      }
+      #services-list .card-icon {
+        margin-left: auto;
+        margin-right: auto;
       }
       #services-list .card h3 { 
-        font-size: 1.4rem;
+        font-size: 1.3rem;
       }
-      #services-list .card p { font-size: 15px; }
     }
   </style>
 
   <h2 class="section-title">Our Services</h2>
+  <p class="section-subtitle">Comprehensive waste management solutions tailored to your needs</p>
 
   <div class="cards">
-    <div class="card"><h3>Scrap Collection</h3><p>Door-to-door pickup for 40+ recyclables.</p></div>
-    <div class="card"><h3>Document Shredding</h3><p>Secure shredding for businesses and institutions.</p></div>
-    <div class="card"><h3>EPR Services</h3><p>Official PRO &amp; EPR compliance support.</p></div>
-    <div class="card"><h3>MRF &amp; Consulting</h3><p>Material recovery facility partnerships and consulting.</p></div>
+    <div class="card">
+      <div class="card-icon">♻️</div>
+      <h3>Scrap Collection</h3>
+      <p>Door-to-door pickup for 40+ recyclables including metal, plastic, paper, and e-waste with instant pricing.</p>
+      <a href="services.html" class="card-link">Learn more</a>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">📄</div>
+      <h3>Document Shredding</h3>
+      <p>Secure shredding for businesses and institutions with certified destruction and compliance documentation.</p>
+      <a href="services.html" class="card-link">Learn more</a>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">✅</div>
+      <h3>EPR Services</h3>
+      <p>Official PRO &amp; EPR compliance support helping brands meet extended producer responsibility requirements.</p>
+      <a href="services.html" class="card-link">Learn more</a>
+    </div>
+    
+    <div class="card">
+      <div class="card-icon">🏭</div>
+      <h3>MRF &amp; Consulting</h3>
+      <p>Material recovery facility partnerships and consulting for efficient waste processing and resource recovery.</p>
+      <a href="services.html" class="card-link">Learn more</a>
+    </div>
   </div>
 </section>
 
@@ -1854,69 +1976,69 @@ With his direction, <strong>The Aone Kabadi</strong> has strengthened industry r
       <div id="testimonials-slider" class="test-slider-track" aria-live="polite">
         <article class="test-card test-slide">
           <div class="quote-mark">"</div>
-          <div class="test-body">
-            <p class="test-quote">Fast pickup and fair prices. They recycled our old appliances without any hassle — five stars.</p>
-          </div>
-          <div class="test-footer">
-            <div class="name">Ravi Patel</div>
-            <div class="meta">Delhi · Home pickup · <span class="stars">★★★★★</span></div>
-          </div>
-        </article>
+        <div class="test-body">
+          <p class="test-quote">Fast pickup and fair prices. They recycled our old appliances without any hassle — five stars.</p>
+        </div>
+        <div class="test-footer">
+          <div class="name">Ravi Patel</div>
+          <div class="meta">Delhi · Home pickup · <span class="stars">★★★★★</span></div>
+        </div>
+      </article>
 
         <article class="test-card test-slide">
           <div class="quote-mark">"</div>
-          <div class="test-body">
-            <p class="test-quote">Punctual and transparent. Payment was instant and the staff was very helpful.</p>
-          </div>
-          <div class="test-footer">
-            <div class="name">Meera Singh</div>
-            <div class="meta">Gurgaon · Office clearance · <span class="stars">★★★★☆</span></div>
-          </div>
-        </article>
+        <div class="test-body">
+          <p class="test-quote">Punctual and transparent. Payment was instant and the staff was very helpful.</p>
+        </div>
+        <div class="test-footer">
+          <div class="name">Meera Singh</div>
+          <div class="meta">Gurgaon · Office clearance · <span class="stars">★★★★☆</span></div>
+        </div>
+      </article>
 
         <article class="test-card test-slide">
           <div class="quote-mark">"</div>
-          <div class="test-body">
-            <p class="test-quote">Best rates in the area. Quick inspection and they took everything. Smooth service.</p>
-          </div>
-          <div class="test-footer">
-            <div class="name">Suresh Kumar</div>
-            <div class="meta">Noida · Scrap sale · <span class="stars">★★★★★</span></div>
-          </div>
-        </article>
+        <div class="test-body">
+          <p class="test-quote">Best rates in the area. Quick inspection and they took everything. Smooth service.</p>
+        </div>
+        <div class="test-footer">
+          <div class="name">Suresh Kumar</div>
+          <div class="meta">Noida · Scrap sale · <span class="stars">★★★★★</span></div>
+        </div>
+      </article>
 
         <article class="test-card test-slide">
           <div class="quote-mark">"</div>
-          <div class="test-body">
-            <p class="test-quote">Very professional team. They even gave us tips on reducing household waste.</p>
-          </div>
-          <div class="test-footer">
-            <div class="name">Anjali Rao</div>
-            <div class="meta">Mumbai · Recycling · <span class="stars">★★★★★</span></div>
-          </div>
-        </article>
+        <div class="test-body">
+          <p class="test-quote">Very professional team. They even gave us tips on reducing household waste.</p>
+        </div>
+        <div class="test-footer">
+          <div class="name">Anjali Rao</div>
+          <div class="meta">Mumbai · Recycling · <span class="stars">★★★★★</span></div>
+        </div>
+      </article>
 
         <article class="test-card test-slide">
           <div class="quote-mark">"</div>
-          <div class="test-body">
-            <p class="test-quote">Perfect for bulk scrap collections. Billing was clear and quick.</p>
-          </div>
-          <div class="test-footer">
-            <div class="name">Vikram Joshi</div>
-            <div class="meta">Pune · Bulk collection · <span class="stars">★★★★☆</span></div>
-          </div>
-        </article>
+        <div class="test-body">
+          <p class="test-quote">Perfect for bulk scrap collections. Billing was clear and quick.</p>
+        </div>
+        <div class="test-footer">
+          <div class="name">Vikram Joshi</div>
+          <div class="meta">Pune · Bulk collection · <span class="stars">★★★★☆</span></div>
+        </div>
+      </article>
 
         <article class="test-card test-slide">
           <div class="quote-mark">"</div>
-          <div class="test-body">
-            <p class="test-quote">Superb service. They arrived on time and handled everything smoothly.</p>
-          </div>
-          <div class="test-footer">
-            <div class="name">Priya Nair</div>
-            <div class="meta">Bengaluru · Doorstep pickup · <span class="stars">★★★★★</span></div>
-          </div>
-        </article>
+        <div class="test-body">
+          <p class="test-quote">Superb service. They arrived on time and handled everything smoothly.</p>
+        </div>
+        <div class="test-footer">
+          <div class="name">Priya Nair</div>
+          <div class="meta">Bengaluru · Doorstep pickup · <span class="stars">★★★★★</span></div>
+        </div>
+      </article>
       </div>
     </div>
 
@@ -2078,62 +2200,334 @@ With his direction, <strong>The Aone Kabadi</strong> has strengthened industry r
 })();
 </script>
 
-<section class="container" id="contact" style="padding:28px 20px 48px 20px; text-align:left; margin-top:0;">
-  <h2 class="section-title" id="contact-heading" style="text-align:center; font-size:2.2rem; font-weight:800; color:#ff7300; margin-bottom:18px;">
+<section class="container" id="contact" style="padding:56px 20px; margin-top:0;">
+  <div style="text-align:center; margin-bottom:40px;">
+    <div style="text-transform:uppercase; letter-spacing:0.15em; font-size:12px; color:#16a34a; font-weight:800; margin-bottom:8px;">Contact Us</div>
+    <h2 class="section-title" id="contact-heading" style="font-size:clamp(32px, 5vw, 48px); font-weight:900; color:#0f172a; margin:0 0 12px; line-height:1.1;">
     Get in touch with us
   </h2>
+    <p style="font-size:18px; color:#64748b; max-width:600px; margin:0 auto;">We're here to help! Reach out and we'll get back to you within 24 hours.</p>
+  </div>
 
   <style>
-    #contact { margin-top:0; padding-top:28px; box-sizing:border-box; }
-    #contact .contact-grid { display:grid; grid-template-columns: 1fr 380px; gap:22px; align-items:start; box-sizing: border-box; }
+    #contact { 
+      margin-top:0; 
+      padding-top:56px; 
+      padding-bottom:56px;
+      box-sizing:border-box; 
+      background: linear-gradient(180deg, #ffffff, #f8fffe);
+    }
+    
+    #contact .contact-grid { 
+      display:grid; 
+      grid-template-columns: 1.1fr 0.9fr; 
+      gap:32px; 
+      align-items:start; 
+      box-sizing: border-box;
+      max-width:1200px;
+      margin:0 auto;
+    }
 
-    #contact .form-card, #contact .info-card {
-      border-radius:14px; padding:18px; box-sizing:border-box;
-      background: #72c28fab;
-      border: 2px solid #22c55f; color: #000;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    #contact .form-card { 
+      border-radius:20px; 
+      padding:32px; 
+      box-sizing:border-box;
+      background: #ffffff;
+      border: 2px solid #e2e8f0; 
+      color: #000;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    #contact .form-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 72px rgba(0,0,0,0.12);
+    }
+
+    #contact .form-header {
+      margin-bottom:28px;
+    }
+    #contact .form-header h3 {
+      margin:0 0 8px;
+      font-size:24px;
+      font-weight:900;
+      color:#0f172a;
+    }
+    #contact .form-header p {
+      margin:0;
+      font-size:15px;
+      color:#64748b;
+    }
+
+    #contact .form-group {
+      margin-bottom:20px;
+    }
+    #contact .form-group label {
+      display:block;
+      margin-bottom:8px;
+      font-size:14px;
+      font-weight:700;
+      color:#0f172a;
+    }
+    #contact .form-group label .required {
+      color:#ef4444;
+      margin-left:4px;
+    }
+    #contact .form-row {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+
+    #contact input, #contact textarea, #contact select { 
+      background:#fff; 
+      color:#0f172a; 
+      border-radius:12px; 
+      padding:14px 16px; 
+      border:2px solid #e2e8f0; 
+      font-size:15px; 
+      width:100%; 
+      box-sizing:border-box;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    #contact input:focus, #contact textarea:focus, #contact select:focus {
+      outline:none;
+      border-color:#22c55e;
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.1);
+    }
+    #contact textarea {
+      resize:vertical;
+      min-height:120px;
+    }
+
+    #contact .form-actions {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:24px;
+      flex-wrap:wrap;
+    }
+    #contact .form-actions .btn {
+      padding:14px 24px;
+      border-radius:12px;
+      font-weight:800;
+      font-size:15px;
+      border:none;
+      cursor:pointer;
+      transition: all 0.2s ease;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    #contact .form-actions .btn.primary {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color:#fff;
+      box-shadow: 0 8px 24px rgba(34,197,94,0.3);
+    }
+    #contact .form-actions .btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(34,197,94,0.4);
+    }
+    #contact .form-actions .btn.outline {
+      background:transparent;
+      border:2px solid #e2e8f0;
+      color:#64748b;
+    }
+    #contact .form-actions .btn.outline:hover {
+      border-color:#22c55e;
+      color:#22c55e;
+    }
+
+    #contact .form-footer {
+      margin-top:20px;
+      padding-top:20px;
+      border-top:1px solid #e2e8f0;
+      font-size:13px;
+      color:#64748b;
+      text-align:center;
+    }
+    #contact .form-footer a {
+      color:#22c55e;
+      text-decoration:none;
+      font-weight:700;
+    }
+    #contact .form-footer a:hover {
+      text-decoration:underline;
     }
 
     #contact .info-card {
-      display:grid; grid-template-columns: 150px minmax(180px, 1fr) 160px;
-      gap: 12px 18px; align-items: start;
+      display:flex;
+      flex-direction:column;
+      gap:24px;
       background: #72c28fab;
-      color: #000; padding: 20px; border-radius: 14px; border: 2px solid #22c55f;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      color: #000; 
+      padding: 32px; 
+      border-radius: 20px; 
+      border: 2px solid #22c55f;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      position:sticky;
+      top:100px;
     }
 
-    #contact .info-card h3 { grid-column: 1 / -1; margin:0 0 10px; color:#ff7300; font-size:20px; font-weight:800; }
-    #contact .info-label { grid-column: 1 / 2; text-align:right; padding-right:8px; font-weight:800; color:#16a34a; white-space:nowrap; }
-    #contact .info-main { grid-column: 2 / 3; min-width:0; color:#000; overflow-wrap:anywhere; word-break:break-word; }
-    #contact .info-side { grid-column: 3 / 4; color:#000; text-align:left; min-width:0; }
-
-    #contact .info-main a, #contact .phones a {
-      white-space:nowrap; letter-spacing: normal !important; text-decoration:none; color:#22c55e; font-weight:700; display:inline-block;
+    #contact .info-card h3 { 
+      margin:0 0 8px; 
+      color:#0f172a; 
+      font-size:24px; 
+      font-weight:900;
+    }
+    #contact .info-card .info-subtitle {
+      margin:0 0 24px;
+      font-size:15px;
+      color:#64748b;
     }
 
-    #contact .phones { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
-    #contact .phones a { background: #22c55e; color: #fff; padding:8px 12px; border-radius:10px; box-shadow: 0 2px 6px rgba(34,197,94,0.2); }
+    #contact .info-item {
+      display:flex;
+      align-items:flex-start;
+      gap:16px;
+      padding:16px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.6);
+      border:1px solid rgba(34,197,94,0.2);
+      transition: all 0.2s ease;
+    }
+    #contact .info-item:hover {
+      background:rgba(255,255,255,0.9);
+      transform: translateX(4px);
+    }
+    #contact .info-icon {
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      background:linear-gradient(135deg, #22c55e, #16a34a);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      color:#fff;
+      font-size:20px;
+    }
+    #contact .info-content {
+      flex:1;
+      min-width:0;
+    }
+    #contact .info-content strong {
+      display:block;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      color:#16a34a;
+      margin-bottom:4px;
+      font-weight:800;
+    }
+    #contact .info-content a, #contact .info-content div {
+      color:#0f172a;
+      text-decoration:none;
+      font-size:15px;
+      font-weight:600;
+      word-break:break-word;
+    }
+    #contact .info-content a:hover {
+      color:#22c55e;
+      text-decoration:underline;
+    }
 
-    #contact .hours { color:#000; font-size:14px; }
-    #contact .hours div { margin-bottom:6px; color:#000; }
+    #contact .phones { 
+      display:flex; 
+      gap:8px; 
+      align-items:center; 
+      flex-wrap:wrap; 
+      margin-top:4px;
+    }
+    #contact .phones a { 
+      background: linear-gradient(135deg, #22c55e, #16a34a); 
+      color: #fff; 
+      padding:8px 14px; 
+      border-radius:8px; 
+      box-shadow: 0 4px 12px rgba(34,197,94,0.25);
+      font-size:14px;
+      transition: all 0.2s ease;
+    }
+    #contact .phones a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(34,197,94,0.35);
+    }
 
-    #contact .socials { display:flex; gap:10px; justify-content:flex-end; align-items:center; margin-top:8px; }
-    #contact .socials a { width:44px; height:44px; display:inline-grid; place-items:center; border-radius:10px; background:#22c55e; text-decoration:none; transition: transform .12s ease, box-shadow .12s ease; }
-    #contact .socials a:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(34,197,94,0.3); }
-    #contact .socials svg { width:20px; height:20px; display:block; }
+    #contact .hours { 
+      color:#0f172a; 
+      font-size:14px; 
+      line-height:1.6;
+    }
+    #contact .hours div { 
+      margin-bottom:8px; 
+      color:#0f172a; 
+    }
+    #contact .hours strong {
+      color:#16a34a;
+    }
 
-    #contact .info-map { grid-column: 1 / -1; margin-top:8px; min-height:0; }
+    #contact .socials { 
+      display:flex; 
+      gap:12px; 
+      justify-content:flex-start; 
+      align-items:center; 
+      margin-top:8px; 
+    }
+    #contact .socials a { 
+      width:48px; 
+      height:48px; 
+      display:inline-grid; 
+      place-items:center; 
+      border-radius:12px; 
+      background:#fff;
+      border:2px solid #e2e8f0;
+      text-decoration:none; 
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    #contact .socials a:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 8px 24px rgba(34,197,94,0.25);
+      border-color:#22c55e;
+    }
+    #contact .socials svg { 
+      width:22px; 
+      height:22px; 
+      display:block; 
+    }
 
-    #contact input, #contact textarea, #contact select { background:#fff; color:#0b0b0b; border-radius:10px; padding:10px 12px; border:1px solid rgba(0,0,0,0.12); font-size:14px; width:100%; box-sizing:border-box; }
+    @media (max-width: 980px) {
+      #contact .contact-grid { 
+        grid-template-columns: 1fr; 
+        gap:32px; 
+      }
+      #contact .form-row {
+        grid-template-columns: 1fr;
+      }
+      #contact .info-card {
+        position:static;
+      }
+      #contact .form-card, #contact .info-card {
+        padding:24px;
+      }
+    }
 
-    @media (max-width: 900px) {
-      #contact .contact-grid { grid-template-columns: 1fr; gap:16px; }
-      #contact .info-card { grid-template-columns: 1fr; padding:14px; }
-      #contact .info-label, #contact .info-main, #contact .info-side { grid-column: auto; text-align:left; }
-      #contact .socials { justify-content:flex-start; }
-      #contact .phones { flex-direction:column; align-items:flex-start; gap:8px; }
-      #contact .info-card h3 { text-align:left; }
-      #contact .info-main a, #contact .phones a { white-space: normal; }
+    @media (max-width: 640px) {
+      #contact {
+        padding:40px 16px;
+      }
+      #contact .form-card, #contact .info-card {
+        padding:20px;
+        border-radius:16px;
+      }
+      #contact .form-actions {
+        flex-direction:column;
+      }
+      #contact .form-actions .btn {
+        width:100%;
+        justify-content:center;
+      }
     }
 
     #contact, #contact * {
@@ -2147,113 +2541,123 @@ With his direction, <strong>The Aone Kabadi</strong> has strengthened industry r
 
   <div class="contact-grid" aria-labelledby="contact-heading">
 
-    <div class="form-card card" aria-hidden="false">
+    <div class="form-card" aria-hidden="false">
+      <div class="form-header">
+        <h3>Send us a message</h3>
+        <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+      </div>
+      
       <form id="contactFormScoped" method="POST" action="https://script.google.com/macros/s/AKfycby663b4RX_4AR-441lXRLhBG0r2ed8B5NzoWKF2lS1b7umjTpr6Csfs86r7O7rMSWLI/exec" novalidate>
-  <div id="contactMessageScoped" role="status" aria-live="polite" style="display:none;margin-bottom:12px;padding:10px;border-radius:8px;"></div>
+        <div id="contactMessageScoped" role="status" aria-live="polite" style="display:none;margin-bottom:16px;padding:12px;border-radius:10px;"></div>
 
   <!-- routing + honeypot -->
   <input type="hidden" name="form_id" value="contactForm">
   <input type="hidden" name="sheetName" value="contactForm">
   <input type="text" name="hp" style="display:none !important" tabindex="-1" autocomplete="off">
 
-  <div style="display:flex;gap:12px;flex-wrap:wrap" role="group" aria-label="Name and phone">
-    <label style="flex:1;display:flex;flex-direction:column;gap:8px">
-      <span class="label-text" style="color:#ff7300 ;font-weight:700">Full Name <span style="color:#f2d28a">*</span></span>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-name-scoped">Full Name <span class="required">*</span></label>
       <input name="name" id="contact-name-scoped" type="text" placeholder="Your full name" required autocomplete="name">
-    </label>
+          </div>
 
-    <label style="flex:1;display:flex;flex-direction:column;gap:8px">
-      <span class="label-text" style="color:#ff7300 ;font-weight:700">Phone Number <span style="color:#f2d28a">*</span></span>
+          <div class="form-group">
+            <label for="contact-phone-scoped">Phone Number <span class="required">*</span></label>
       <input name="phone" id="contact-phone-scoped" type="tel" placeholder="+91 7856815038" pattern="[\d+\-\s]{7,20}" required autocomplete="tel">
-    </label>
+          </div>
   </div>
 
-  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px" role="group" aria-label="Email and subject">
-    <label style="flex:1;display:flex;flex-direction:column;gap:8px">
-      <span class="label-text" style="color:#ff7300 ;font-weight:700">Email</span>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-email-scoped">Email</label>
       <input name="email" id="contact-email-scoped" type="email" placeholder="you@example.com" autocomplete="email">
-    </label>
+          </div>
 
-    <label style="flex:1;display:flex;flex-direction:column;gap:8px">
-      <span class="label-text" style="color:#ff7300 ;font-weight:700">Subject</span>
-      <input name="subject" id="contact-subject-scoped" type="text" placeholder="Subject / Short note">
-    </label>
+          <div class="form-group">
+            <label for="contact-subject-scoped">Subject</label>
+            <input name="subject" id="contact-subject-scoped" type="text" placeholder="What's this about?">
+          </div>
   </div>
 
-  <div style="margin-top:12px">
-    <label style="display:flex;flex-direction:column;gap:8px">
-      <span class="label-text" style="color:#ff7300 ;font-weight:700">Message <span style="color:#f2d28a">*</span></span>
-      <textarea name="message" id="contact-message-scoped" rows="6" placeholder="Write your message here..." required></textarea>
-    </label>
+        <div class="form-group">
+          <label for="contact-message-scoped">Message <span class="required">*</span></label>
+          <textarea name="message" id="contact-message-scoped" rows="6" placeholder="Tell us how we can help you..." required></textarea>
   </div>
 
-  <div style="display:flex;gap:12px;align-items:center;margin-top:12px;flex-wrap:wrap">
-    <label style="display:flex;gap:8px;align-items:center;font-size:14px;color:var(--muted)">
-      <input type="checkbox" name="pickup_opt" value="yes" style="width:16px;height:16px">
+        <div style="display:flex;gap:12px;align-items:center;margin-top:8px;flex-wrap:wrap;padding:12px;background:#f8fafc;border-radius:10px;">
+          <label style="display:flex;gap:10px;align-items:center;font-size:14px;color:#64748b;cursor:pointer;flex:1;">
+            <input type="checkbox" name="pickup_opt" value="yes" style="width:18px;height:18px;cursor:pointer;">
       Request pickup (if applicable)
     </label>
-    <div style="margin-left:auto;color:var(--muted);font-size:13px">We typically respond within 24 hours</div>
+          <div style="font-size:13px;color:#16a34a;font-weight:600;">⚡ 24hr response</div>
   </div>
 
-  <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
-    <button id="contactSubmitScoped" type="submit" class="btn primary big">Send Message</button>
+        <div class="form-actions">
+          <button id="contactSubmitScoped" type="submit" class="btn primary">Send Message</button>
     <button id="contactResetScoped" type="button" class="btn outline">Reset</button>
   </div>
 
-  <p style="margin-top:12px;color:var(--muted);font-size:13px">
-    By sending you agree to our <a href="privacy.html" style="color:#ff7300">Privacy Policy</a> and consent to be contacted.
-  </p>
+        <div class="form-footer">
+          By sending you agree to our <a href="privacy.html">Privacy Policy</a> and consent to be contacted.
+        </div>
 </form>
-
     </div>
 
-    <div class="info-card card" aria-hidden="false" aria-label="Contact information">
+    <div class="info-card" aria-hidden="false" aria-label="Contact information">
       <h3>Contact Information</h3>
+      <p class="info-subtitle">Reach us through any of these channels</p>
 
-      <div class="info-row">
-        <div class="info-label">Location:</div>
-        <div class="info-main">101,Mochro,Kasmar Block,Ponda,Jharkhand,827320</div>
-        <div class="info-side"></div>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div class="info-content">
+          <strong>Location</strong>
+          <div>101, Mochro, Kasmar Block, Ponda, Jharkhand, 827320</div>
+        </div>
       </div>
 
-      <div class="info-row">
-        <div class="info-label">Phone:</div>
-        <div class="info-main">
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div class="info-content">
+          <strong>Phone</strong>
           <div class="phones" role="list">
             <a role="listitem" href="tel:+917856815038">+91-7856815038</a>
-            <!-- <a role="listitem" href="tel:+917903416992">+91-7903416992</a> -->
           </div>
         </div>
-        <div class="info-side"></div>
       </div>
 
-      <div class="info-row">
-        <div class="info-label">Email:</div>
-        <div class="info-main"><a href="mailto:aonekabadi@gmail.com">aonekabadi@gmail.com</a></div>
-        <div class="info-side"></div>
+      <div class="info-item">
+        <div class="info-icon">✉️</div>
+        <div class="info-content">
+          <strong>Email</strong>
+          <a href="mailto:aonekabadi@gmail.com">aonekabadi@gmail.com</a>
+        </div>
       </div>
 
-      <div class="info-row">
-        <div class="info-label">Website:</div>
-        <div class="info-main"><a href="index.html" target="_blank" rel="noopener">www.aonekabadi.com</a></div>
-        <div class="info-side"></div>
+      <div class="info-item">
+        <div class="info-icon">🌐</div>
+        <div class="info-content">
+          <strong>Website</strong>
+          <a href="index.html" target="_blank" rel="noopener">www.aonekabadi.com</a>
+        </div>
       </div>
 
-      <div class="info-row">
-        <div class="info-label">Working<br>Hours:</div>
-        <div class="info-main"></div>
-        <div class="info-side">
+      <div class="info-item">
+        <div class="info-icon">🕐</div>
+        <div class="info-content">
+          <strong>Working Hours</strong>
           <div class="hours">
             <div><strong>Mon - Sat:</strong> 9:00 AM - 7:00 PM</div>
             <div><strong>Sun:</strong> Closed (Emergency pickups available)</div>
           </div>
+        </div>
+          </div>
 
-          <div class="socials" aria-label="Follow us" style="margin-top:8px">
-            <!-- Instagram: gradient background + white camera outline (crisp on dark bg) -->
+      <div style="margin-top:8px;">
+        <div class="socials" aria-label="Follow us">
             <a class="social-inst" aria-label="Instagram" href="https://www.instagram.com/aonekabadi" target="_blank" rel="noopener" title="Instagram">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <defs>
-                  <linearGradient id="ig-gradient-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="ig-gradient-contact" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="#f58529"></stop>
                     <stop offset="30%" stop-color="#feda77"></stop>
                     <stop offset="50%" stop-color="#dd2a7b"></stop>
@@ -2261,38 +2665,19 @@ With his direction, <strong>The Aone Kabadi</strong> has strengthened industry r
                     <stop offset="100%" stop-color="#515bd4"></stop>
                   </linearGradient>
                 </defs>
-                <!-- gradient rounded square -->
-                <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#ig-gradient-2)"></rect>
-                <!-- camera outline (white stroke) -->
+              <rect x="2" y="2" width="20" height="20" rx="5" fill="url(#ig-gradient-contact)"></rect>
                 <rect x="7.2" y="7.2" width="9.6" height="9.6" rx="3" fill="none" stroke="#fff" stroke-width="1.4"></rect>
-                <!-- lens -->
                 <circle cx="12" cy="12" r="2.5" fill="#fff"></circle>
-                <!-- flash / dot -->
                 <circle cx="17" cy="7" r="0.7" fill="#fff"></circle>
               </svg>
             </a>
 
-            <!-- Facebook -->
             <a class="social-fb" aria-label="Facebook" href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path fill="#1877F2" d="M22 12.1C22 6.6 17.5 2 12 2S2 6.6 2 12.1c0 5 3.7 9.2 8.6 9.9v-7H8.1v-2.9h2.5V9.3c0-2.4 1.4-3.7 3.5-3.7 1 0 2 .07 2 .07v2.2h-1.1c-1.1 0-1.4.69-1.4 1.4v1.7h2.4l-.4 2.9h-2V22c4.9-.8 8.6-4.9 8.6-9.9z"></path>
               </svg>
             </a>
-
-            <!-- LinkedIn -->
-            <!-- <a class="social-li" aria-label="LinkedIn" href="https://www.linkedin.com/in/the-kabadi-king-8a76b1391?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app"_blank" rel="noopener" title="LinkedIn">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path fill="#0A66C2" d="M4.98 3.5C4.98 4.6 4.12 5.5 2.95 5.5 1.77 5.5 0.9 4.6 0.9 3.5 0.9 2.4 1.77 1.5 2.95 1.5c1.17 0 2.03.9 2.03 2zM.8 8.98H5.1V22H.8zM8.1 8.98h3.9v1.8h.1c.5-.9 1.8-1.8 3.7-1.8 4 0 4.8 2.6 4.8 6V22h-4.3v-6.6c0-1.6 0-3.7-2.3-3.7-2.3 0-2.6 1.8-2.6 3.6V22H8.1z"></path>
-              </svg>
-            </a> -->
           </div>
-        </div>
-      </div>
-
-      <div class="info-row">
-        <div class="info-label" aria-hidden="true"></div>
-        <div class="info-main info-map"></div>
-        <div class="info-side"></div>
       </div>
     </div>
   </div>
@@ -2626,85 +3011,283 @@ With his direction, <strong>The Aone Kabadi</strong> has strengthened industry r
 
 
 
-<section class="container" id="impact" style="padding:36px 20px; margin-top:0;">
+<section class="container" id="impact" style="padding:56px 20px; margin-top:0;">
   <style>
-    /* Scoped styles for Impact section */
-    #impact { color: #000; background: #ffffff; }
+    #impact {
+      color: #000;
+      background: linear-gradient(180deg, #f8fffe, #ffffff);
+      padding-top: 56px;
+      padding-bottom: 56px;
+    }
+
     #impact .section-title {
-      text-align:center;
-      font-size:2.2rem;
-      font-weight:800;
-      color:#ff7300;
-      margin: 0 0 18px;
+      text-align: center;
+      font-size: clamp(32px, 5vw, 42px);
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0 auto 12px;
+      letter-spacing: -0.5px;
+    }
+
+    #impact .section-subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: #64748b;
+      margin: 0 auto 40px;
+      max-width: 700px;
     }
 
     #impact .card-impact {
-      padding:20px;
-      border-radius:16px;
-      background: #72c28fab;
-      border: 2px solid #22c55f;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      max-width:800px;
-      margin:0 auto;
-      text-align:center;
+      padding: 48px 32px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      border: 2px solid #e2e8f0;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+
+    #impact .card-impact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #22c55e, #16a34a, #22c55e);
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
     #impact .card-impact h3 {
-      margin:0;
-      font-size:20px;
-      color:#ff7300;
-      font-weight:900;
+      margin: 0;
+      font-size: 24px;
+      color: #0f172a;
+      font-weight: 900;
+      letter-spacing: -0.3px;
     }
+
+    #impact .card-impact .intro-text {
+      margin: 0;
+      color: #64748b;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     #impact .impact-stats {
-      display:grid;
+      display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top:6px;
+      gap: 24px;
+      margin-top: 8px;
     }
+
     #impact .stat {
-      background: rgba(34,197,94,0.05);
-      padding:12px;
-      border-radius:10px;
-      border:1px solid rgba(34,197,94,0.1);
+      background: #ffffff;
+      padding: 32px 24px;
+      border-radius: 20px;
+      border: 2px solid #e2e8f0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
+
+    #impact .stat::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    #impact .stat:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(34,197,94,0.15);
+      border-color: #22c55e;
+    }
+
+    #impact .stat:hover::before {
+      transform: scaleX(1);
+    }
+
+    #impact .stat-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+      box-shadow: 0 8px 20px rgba(34,197,94,0.25);
+    }
+
     #impact .stat .num {
-      font-size:18px;
-      font-weight:900;
-      color:#16a34a;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      font-variant-numeric: tabular-nums;
     }
-    #impact .stat .label { font-size:13px; color: #000; margin-top:6px; }
+
+    #impact .stat .num .unit {
+      font-size: 0.6em;
+      color: #64748b;
+      font-weight: 700;
+      margin-left: 4px;
+    }
+
+    #impact .stat .label {
+      font-size: 15px;
+      color: #64748b;
+      margin-top: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
     @media (max-width: 768px) {
-      #impact .section-title { font-size:2rem; }
-      #impact .impact-stats { grid-template-columns:1fr; }
+      #impact {
+        padding: 40px 16px;
+      }
+      #impact .section-title {
+        font-size: 32px;
+      }
+      #impact .section-subtitle {
+        font-size: 16px;
+        margin-bottom: 32px;
+      }
+      #impact .card-impact {
+        padding: 32px 20px;
+        gap: 28px;
+      }
+      #impact .impact-stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      #impact .stat {
+        padding: 28px 20px;
+      }
     }
   </style>
 
-  <h2 class="section-title">Impact</h2>
+  <h2 class="section-title">Our Impact</h2>
+  <p class="section-subtitle">Building a sustainable future, one pickup at a time</p>
 
   <div class="card-impact" role="region" aria-label="Impact snapshot">
     <h3>Impact Snapshot</h3>
-    <p style="margin:0;color:rgba(255,255,255,0.88);font-size:14px;line-height:1.5">
-      81,10,504 kg waste diverted. 13.8 crores litres of water saved. 10,243 trees planted (sample stats)
+    <p class="intro-text">
+      Through our comprehensive waste management solutions, we've made significant strides in environmental conservation and resource recovery.
     </p>
 
     <div class="impact-stats">
       <div class="stat">
-        <div class="num">81,10,504 kg</div>
-        <div class="label">Material diverted</div>
+        <div class="stat-icon">♻️</div>
+        <div class="num" data-target="8110504" data-suffix=" kg"><span class="counter-value">0</span><span class="unit"> kg</span></div>
+        <div class="label">Material Diverted</div>
       </div>
       <div class="stat">
-        <div class="num">13.8 Cr L</div>
-        <div class="label">Water saved</div>
+        <div class="stat-icon">💧</div>
+        <div class="num" data-target="13.8" data-suffix=" Cr L" data-decimal="true"><span class="counter-value">0</span><span class="unit"> Cr L</span></div>
+        <div class="label">Water Saved</div>
       </div>
       <div class="stat">
-        <div class="num">10,243</div>
-        <div class="label">Trees planted</div>
+        <div class="stat-icon">🌳</div>
+        <div class="num" data-target="10243" data-suffix=""><span class="counter-value">0</span></div>
+        <div class="label">Trees Planted</div>
       </div>
     </div>
   </div>
+
+  <script>
+    (function() {
+      // Counter animation function
+      function animateCounter(element, target, duration, isDecimal) {
+        const start = 0;
+        const increment = target / (duration / 16); // 60fps
+        let current = start;
+        const counterValue = element.querySelector('.counter-value');
+        
+        const timer = setInterval(function() {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          
+          // Format number based on type
+          let displayValue;
+          if (isDecimal) {
+            // For decimal numbers (like 13.8)
+            displayValue = current.toFixed(1);
+          } else if (target >= 1000) {
+            // For large numbers, add commas
+            displayValue = Math.floor(current).toLocaleString('en-IN');
+          } else {
+            // For smaller integers
+            displayValue = Math.floor(current);
+          }
+          
+          counterValue.textContent = displayValue;
+        }, 16);
+      }
+
+      // Intersection Observer to trigger animation when section is visible
+      const impactSection = document.getElementById('impact');
+      if (impactSection) {
+        const stats = impactSection.querySelectorAll('.stat .num');
+        let hasAnimated = false;
+
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting && !hasAnimated) {
+              hasAnimated = true;
+              
+              stats.forEach(function(stat) {
+                const target = parseFloat(stat.getAttribute('data-target'));
+                const isDecimal = stat.getAttribute('data-decimal') === 'true';
+                
+                // Adjust duration based on target value
+                let duration = 2000;
+                if (target < 100) {
+                  duration = 1500;
+                } else if (target > 1000000) {
+                  duration = 2500;
+                }
+                
+                animateCounter(stat, target, duration, isDecimal);
+              });
+            }
+          });
+        }, {
+          threshold: 0.3
+        });
+
+        observer.observe(impactSection);
+      }
+    })();
+  </script>
 </section>
 
 
