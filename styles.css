@@ -1411,7 +1411,7 @@ body {
   .nav {
     flex-direction: column;
     background: #111;
-    position: absolute;
+    /* position: absolute; */
     top: 80px;
     right: 0;
     left: 0;
