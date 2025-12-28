@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --green: #2bb673;
+  --orange: #ff6f3c;
+  --deep: #062014;
+  --bg: #f6fbf8;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --glass: rgba(255, 255, 255, 0.7);
+  --maxw: 1200px;
+  --accent-grad: linear-gradient(135deg, #2bb673, #54c17a 40%, #ff6f3c);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--deep);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  position: relative;
+  height: 82vh;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #000;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45) saturate(0.95);
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  width: 100%;
+  padding: 48px 20px;
+}
+
